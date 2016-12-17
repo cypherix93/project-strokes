@@ -1,19 +1,19 @@
 {
   "meta": {
-    "name": "SymphonE",
-    "project": "project-symphone",
+    "name": "Project Strokes",
+    "project": "project-strokes",
     "version": "0.0.1",
     "description": "",
     "copyright": "Copyright \u00A9 2016",
     "author": {
-      "name": "benjaminstrumeyer",
-      "url": "https://github.com/benjaminstrumeyer/SymphonE"
+      "name": "cypherix93",
+      "url": "https://github.com/cypherix93/project-strokes"
     }
   },
   "config": {
     "ports": {
-      "client": 7300,
-      "server": 7350
+      "client": 7970,
+      "server": 7950
     }
   }
 }
