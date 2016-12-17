@@ -1,5 +1,5 @@
 {
-  "name": "project-symphone",
+  "name": "project-strokes",
   "private": true,
   "version": "0.0.1",
   "description": "",
@@ -111,7 +111,7 @@
     "gulp": "./node_modules/.bin/gulp"
   },
   "author": {
-    "name": "benjaminstrumeyer",
-    "url": "https://github.com/benjaminstrumeyer/SymphonE"
+    "name": "cypherix93",
+    "url": "https://github.com/cypherix93/project-strokes"
   }
 }

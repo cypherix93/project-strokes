@@ -1,11 +1,11 @@
 {
-  "name": "SymphonE",
-  "project": "project-symphone",
+  "name": "Project Strokes",
+  "project": "project-strokes",
   "version": "0.0.1",
   "description": "",
   "copyright": "Copyright © 2016",
   "author": {
-    "name": "benjaminstrumeyer",
-    "url": "https://github.com/benjaminstrumeyer/SymphonE"
+    "name": "cypherix93",
+    "url": "https://github.com/cypherix93/project-strokes"
   }
 }
