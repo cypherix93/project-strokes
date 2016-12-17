@@ -1,5 +1,5 @@
-# SymphonE
-Collaborative MIDI keyboard music creation web application.
+# Project Strokes
+A web-comic application. More description will come soon.
 
 ---
 
