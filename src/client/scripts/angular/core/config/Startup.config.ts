@@ -1,7 +1,7 @@
-import {AngularApp} from "../../AngularApp";
+import {AppModule} from "../../App.module";
 
 // Configure Angular App Initialization
-AngularApp.run(function ($rootScope, $state)
+AppModule.run(function ($rootScope, $state)
 {
     $rootScope.pageTitle = "Home";
 

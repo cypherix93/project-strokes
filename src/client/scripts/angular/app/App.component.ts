@@ -1,11 +1,11 @@
-import {AngularApp} from "../AngularApp";
+import {AppModule} from "../App.module";
 
 class AppController
 {
 
 }
 
-AngularApp.component("appComponent", {
+AppModule.component("appComponent", {
     controller: AppController,
     template: require("./App.template.html")
 });

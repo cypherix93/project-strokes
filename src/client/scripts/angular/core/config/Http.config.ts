@@ -1,7 +1,7 @@
-import {AngularApp} from "../../AngularApp";
+import {AppModule} from "../../App.module";
 
 // HTTP Configuration, like cookie, JWT and error handling
-AngularApp.config(function ($httpProvider)
+AppModule.config(function ($httpProvider)
 {
     $httpProvider.defaults.withCredentials = true;
 });

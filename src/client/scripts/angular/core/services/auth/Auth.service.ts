@@ -1,4 +1,4 @@
-import {AngularApp} from "../../../AngularApp";
+import {AppModule} from "../../../App.module";
 import {ApiService} from "../data/Api.service";
 import {IPayload} from "../../models/IPayload";
 
@@ -61,4 +61,4 @@ export class AuthService
     }
 }
 
-AngularApp.service("AuthService", AuthService);
+AppModule.service("AuthService", AuthService);

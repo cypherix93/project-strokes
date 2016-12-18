@@ -1,12 +1,12 @@
-import {AngularApp} from "../../AngularApp";
-import {registerRoute} from "../../core/helpers/RoutingHelper";
+import {AppModule} from "../../../App.module";
+import {registerRoute} from "../../../core/helpers/RoutingHelper";
 
 class HomeController
 {
 
 }
 
-AngularApp.component("homeComponent", {
+AppModule.component("homeComponent", {
     controller: HomeController,
     template: require("./Home.template.html")
 });
