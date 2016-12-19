@@ -6,7 +6,9 @@ class NavbarController
 {
     public appMeta = APP_META;
 
-    constructor(private $state, public AuthService: AuthService, private toastr)
+    public parallaxEffect = this.parallaxHelper.createAnimator(-0.8);
+
+    constructor(private $state, public AuthService: AuthService, private toastr, private parallaxHelper)
     {
     }
 

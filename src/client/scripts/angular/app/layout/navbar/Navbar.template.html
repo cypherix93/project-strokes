@@ -1,4 +1,8 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div style="height: 160px; overflow: hidden">
+    <img class="img-responsive" src="../../../../../images/banner.jpg" du-parallax y="$ctrl.parallaxEffect" style="margin-top: -320px" />
+</div>
+
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar">
@@ -9,7 +13,7 @@
             </button>
             <a class="navbar-brand" ui-sref="homeState">
                 <span class="h3">
-                    <span class="fa fa-asterisk"></span>
+                    <span class="fa fa-circle-o-notch"></span>
                     {{$ctrl.appMeta.name}}
                 </span>
             </a>
@@ -17,7 +21,7 @@
 
         <div class="collapse navbar-collapse" id="top-navbar">
             <ul class="nav navbar-nav">
-                <li ui-sref-active="active" >
+                <li ui-sref-active="active">
                     <a ui-sref="homeState">
                         <span class="fa fa-lg fa-home"></span>
                     </a>
