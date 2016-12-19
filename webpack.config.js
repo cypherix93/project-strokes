@@ -13,7 +13,7 @@ paths.output = path.join(__dirname, "./build/client/");
 
 var entries = {
     vendor: path.join(paths.scripts, "Vendor.ts"),
-    angular: glob.sync(path.join(paths.scripts, "angular/**/*.ts")),
+    angular: path.join(paths.scripts, "Angular.ts"),
     styles: path.join(paths.styles, "main.scss")
 };
 
@@ -29,7 +29,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.ts$/,
-                loaders: ["ts-loader"]
+                loaders: ["ts-loader", "import-glob-loader"]
             },
             {
                 test: /\.scss$/,

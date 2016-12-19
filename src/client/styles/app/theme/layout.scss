@@ -7,6 +7,14 @@
 
     box-shadow: white 0 0 80px 120px;
 }
+#footer-container
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+$fluid-side-padding-base: 2.5%;
 .container-fluid
 {
     padding: 0;
@@ -15,24 +23,18 @@
     .container-fluid
     {
         padding: 0;
-        margin: 0;
+        margin: 0 ($fluid-side-padding-base);
     }
 }
 @media (min-width: $screen-md-min) {
     .container-fluid
     {
-        margin: 0 2.5%;
+        margin: 0 ($fluid-side-padding-base + 2.5%);
     }
 }
 @media (min-width: $screen-lg-min) {
     .container-fluid
     {
-        margin: 0 5%;
+        margin: 0 ($fluid-side-padding-base + 5%);
     }
-}
-#footer-container
-{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 15px;
 }
