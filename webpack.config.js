@@ -46,6 +46,10 @@ module.exports = {
             {
                 test: /\.(eot|svg|ttf|woff|woff2)/,
                 loader: "file-loader?name=fonts/[name].[ext]"
+            },
+            {
+                test: /\.(jpg|jpeg|png|bmp|gif|tiff)/,
+                loader: "file-loader?name=images/[name].[ext]"
             }
         ]
     },
@@ -62,7 +66,15 @@ module.exports = {
         }),
         
         new CopyPlugin([
-            {from: paths.client + "/index.html"}
+            {
+                context: paths.client,
+                from: "**/*",
+                ignore: [
+                    "scripts/**/*",
+                    "styles/**/*",
+                    "tsconfig.json"
+                ]
+            }
         ])
     ]
 };
