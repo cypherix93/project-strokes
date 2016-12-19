@@ -2,8 +2,6 @@
 {
     height: 100%;
     @include text-antialias();
-
-    background: $gray-lighter;
 }
 a
 {
@@ -24,15 +22,4 @@ a, .btn, button
 template
 {
     display: none !important;
-}
-hr
-{
-    float: none;
-    clear: both;
-    margin: 20px 0;
-}
-h1, h2, h3, h4, h5, h6
-{
-    //margin: 0;
-    //text-shadow: $gray-dark 0 0 4px;
 }

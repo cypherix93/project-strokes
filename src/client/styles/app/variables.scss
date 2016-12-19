@@ -2,11 +2,11 @@
 
 /* Colors */
 $gray-base:             #090909;
-$gray-darker:           lighten($gray-base, 12.0%); // #222
-$gray-dark:             lighten($gray-base, 24%);   // #333
-$gray:                  lighten($gray-base, 40.0%); // #555
-$gray-light:            lighten($gray-base, 66%);   // #999
-$gray-lighter:          lighten($gray-base, 94.0%); // #eee
+$gray-darker:           lighten($gray-base, 15.0%);
+$gray-dark:             lighten($gray-base, 30%);
+$gray:                  lighten($gray-base, 50.0%);
+$gray-light:            lighten($gray-base, 75%);
+$gray-lighter:          lighten($gray-base, 90.0%);
 
 $brand-primary:         #50729f;
 $brand-success:         #3FAD46;
