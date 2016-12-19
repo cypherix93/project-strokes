@@ -12,9 +12,9 @@ paths.styles = path.join(paths.client, "styles");
 paths.output = path.join(__dirname, "./build/client/");
 
 var entries = {
-    vendor: path.join(paths.scripts, "Vendor.ts"),
-    angular: path.join(paths.scripts, "Angular.ts"),
-    styles: path.join(paths.styles, "main.scss")
+    "vendor_bundle": path.join(paths.scripts, "Vendor.ts"),
+    "angular_bundle": path.join(paths.scripts, "Angular.ts"),
+    "styles_bundle": path.join(paths.styles, "main.scss")
 };
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
     output: {
         path: paths.output,
         library: "[name]",
-        filename: "js/[name]-bundle.js"
+        filename: "js/[name].js"
     },
     module: {
         loaders: [
@@ -61,7 +61,7 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
+            name: "vendor_bundle",
             minChunks: Infinity
         }),
         
