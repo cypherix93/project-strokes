@@ -27,6 +27,7 @@ import "angular-toastr";
 // Extra libraries
 import "angular-scroll";
 import "./vendor/angular-parallax/angular-parallax.js";
+import "./vendor/ng-sticky/sticky.min.js";
 
 // Test
 console.log("LOOK MA I WORK!!");

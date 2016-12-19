@@ -9,7 +9,8 @@ angular.module("AppModule", [
     "ui.bootstrap",
     "toastr",
     "duScroll",
-    "duParallax"
+    "duParallax",
+    "sticky"
 ]);
 
 // Global Angular App Declaration
