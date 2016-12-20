@@ -3,7 +3,7 @@ import {registerRoute} from "../../../core/helpers/RoutingHelper";
 
 class ComicController
 {
-
+    public state = false;
 }
 
 AppModule.component("comicComponent", {

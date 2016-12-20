@@ -1,0 +1,31 @@
+.comic-reader
+{
+    position: relative;
+
+    .reader-top-bar
+    {
+        background: $gray-lighter;
+
+        .reader-guide-button
+        {
+        }
+        .reader-episode-meta
+        {
+            padding: 5px 0;
+            margin-left: 15px;
+
+            .reader-episode-title
+            {
+                margin: 2px 0;
+            }
+        }
+        .reader-controls
+        {
+        }
+
+        .btn
+        {
+            padding: 20px;
+        }
+    }
+}

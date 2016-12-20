@@ -1,0 +1,25 @@
+a
+{
+    cursor: pointer;
+    text-decoration: none !important;
+
+    &:hover
+    {
+        color: lighten(saturate($link-color, 25%), 10%);
+    }
+    &.btn:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-warning):not(.btn-danger):not(.btn-info)
+    {
+        color: $text-color;
+
+        &:hover
+        {
+            color: $text-color;
+            background: transparentize($gray, 0.8);
+        }
+    }
+}
+a, .btn, button
+{
+    @include transitions();
+    outline: none !important;
+}

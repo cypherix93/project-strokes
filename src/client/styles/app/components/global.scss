@@ -3,21 +3,6 @@
     height: 100%;
     @include text-antialias();
 }
-a
-{
-    cursor: pointer;
-    text-decoration: none !important;
-
-    &:hover
-    {
-        color: lighten(saturate($link-color, 25%), 10%);
-    }
-}
-a, .btn, button
-{
-    @include transitions();
-    outline: none !important;
-}
 [hidden],
 template
 {
