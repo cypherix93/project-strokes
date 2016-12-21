@@ -9,5 +9,8 @@
 /* Bootswatch Style */
 @import "~bootswatch/cosmo/_bootswatch";
 
+/* Flexbox Grid (override Bootstrap grid) */
+@import "~flexboxgrid";
+
 /* Libraries */
 @import "~font-awesome/scss/font-awesome";
