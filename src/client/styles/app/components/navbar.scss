@@ -3,7 +3,7 @@
     height: 54px;
     padding: 0 30px;
     margin-bottom: 0;
-    box-shadow: transparentize($gray-darker, 0.5) 0 0 5px;
+    @include shadowfy();
 
     .navbar-brand
     {

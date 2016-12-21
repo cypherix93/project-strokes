@@ -1,9 +1,4 @@
-﻿html, body
-{
-    height: 100%;
-    @include text-antialias();
-}
-[hidden],
+﻿[hidden],
 template
 {
     display: none !important;

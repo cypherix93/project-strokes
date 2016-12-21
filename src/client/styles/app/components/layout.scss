@@ -1,8 +1,18 @@
+html, body
+{
+    height: 100%;
+    @include text-antialias();
+
+    background: $gray-lighter;
+}
 #content-container
 {
-    padding: 0 15px 30px;
-
+    padding: 0 30px 30px;
     overflow: hidden;
+
+    background: white;
+
+    @include shadowfy();
 }
 #footer-container
 {
@@ -19,6 +29,12 @@
     .container-fluid
     {
         padding: 0;
+        margin: 0;
+    }
+}
+@media (min-width: $screen-sm-min) {
+    .container-fluid
+    {
         margin: 0 2%;
     }
 }

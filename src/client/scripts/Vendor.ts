@@ -5,12 +5,13 @@
 import jQuery = require("jquery");
 
 // Lodash
-import * as lodash from "lodash";
+import _ = require("lodash");
 
 // Set globals
 window["$"] = jQuery;
 window["jQuery"] = jQuery;
-window["_"] = lodash;
+window["_"] = _;
+
 
 // Bootstrap
 import "bootstrap-sass";

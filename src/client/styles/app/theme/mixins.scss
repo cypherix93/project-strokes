@@ -6,9 +6,14 @@
     text-shadow: $text-shadow;
 }
 
-@mixin transitions($prop:all)
+@mixin transitions($prop:all, $duration:0.15s)
 {
-    transition: $prop 0.15s ease;
+    transition: $prop $duration ease;
+}
+
+@mixin shadowfy($blur: 5px)
+{
+    box-shadow: transparentize($gray-darker, 0.5) 0 0 $blur;
 }
 
 // Style Mixins
