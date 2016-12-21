@@ -1,13 +1,13 @@
 ﻿.navbar
 {
-    height: 60px;
+    height: 54px;
     padding: 0 30px;
     margin-bottom: 0;
     box-shadow: transparentize($gray-darker, 0.5) 0 0 5px;
 
     .navbar-brand
     {
-        padding: 15px 15px 0;
+        padding: 12px 15px 0;
         margin-right: 20px;
         height: auto;
         line-height: normal;
@@ -31,6 +31,6 @@
 
     .navbar-nav > li > a
     {
-        padding: 18px;
+        padding: 15px 18px;
     }
 }
