@@ -25,9 +25,9 @@ import "angular-ui-router";
 import "angular-toastr";
 
 // Extra libraries
+import "jquery-sticky";
 import "angular-scroll";
 import "../vendor/angular-parallax/angular-parallax.js";
-import "../vendor/ng-sticky/sticky.js";
 
 // Polyfills
 import "./Polyfills";
