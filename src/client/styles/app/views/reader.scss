@@ -2,14 +2,15 @@
 {
     .reader-top-bar
     {
-        background: $gray-lighter;
+        background: $gray-darker;
+        color: white;
 
         .reader-guide-button
         {
         }
         .reader-episode-meta
         {
-            padding: 5px 0;
+            padding: 1px 0 5px;
             margin-left: 15px;
 
             .reader-episode-title
@@ -23,7 +24,11 @@
 
         .btn
         {
-            padding: 20px;
+            padding: 15px 20px;
         }
+    }
+    .reader-main-area
+    {
+        background: $gray-base;
     }
 }

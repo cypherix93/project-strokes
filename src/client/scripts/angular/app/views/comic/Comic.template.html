@@ -1,23 +1,30 @@
 <div class="comic-container">
-    <h1 class="page-header">Comic Page</h1>
-
     <div class="comic-reader">
-        <div class="reader-top-bar clearfix flex-container flex-v-center" sticky top="60">
-            <div class="reader-guide-button flex-shrink">
-                <a class="btn btn-lg btn-default" uib-tooltip="Guide">
-                    <span class="fa fa-lg fa-bars"></span>
-                </a>
-            </div>
-            <div class="reader-episode-meta flex-grow">
-                Chapter 4 Episode 12
-                <div class="h3 reader-episode-title">
-                    Episode Title Goes Here
+        <div class="reader-top-bar" sticky top="60">
+            <div class="row middle-xs" style="margin: 0;">
+                <div class="reader-guide-button">
+                    <a class="btn btn-default" uib-tooltip="Guide" tooltip-placement="right">
+                        <span class="fa fa-lg fa-bars"></span>
+                    </a>
+                </div>
+                <div class="reader-episode-meta col-xs">
+                    <small>Chapter 4 Episode 12</small>
+                    <div class="h4 reader-episode-title">
+                        Episode Title Goes Here
+                    </div>
+                </div>
+                <div class="reader-guide-button">
+                    <a class="btn" uib-tooltip="Reader Mode" tooltip-placement="left">
+                        <span class="fa fa-lg fa-inverse fa-arrows-alt"></span>
+                    </a>
                 </div>
             </div>
-            <div class="reader-guide-button flex-shrink">
-                <a class="btn btn-lg" uib-tooltip="Reader Mode">
-                    <span class="fa fa-lg fa-arrows-alt"></span>
-                </a>
+        </div>
+        <div class="reader-main-area">
+            <div class="row">
+                <div class="col-xs-12">
+                    <img class="img-responsive center-block" src="../../../../../images/comic/page-1.jpg">
+                </div>
             </div>
         </div>
     </div>
