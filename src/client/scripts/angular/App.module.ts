@@ -9,8 +9,7 @@ angular.module("AppModule", [
     "ui.bootstrap",
     "toastr",
     "duScroll",
-    "duParallax",
-    "sticky"
+    "duParallax"
 ]);
 
 // Global Angular App Declaration
@@ -20,7 +19,7 @@ export const AppModule = angular.module("AppModule");
 import "./core/config/**/*.config.ts";
 import "./core/services/**/*.service.ts";
 // import "./core/filters/**/*.filter.ts";
-// import "./core/directives/**/*.directive.ts";
+import "./core/directives/**/*.directive.ts";
 import "./app/**/*.component.ts";
 
 console.log("LOOK MA! I WORK FROM ANGULAR!");
