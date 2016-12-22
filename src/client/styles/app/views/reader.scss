@@ -1,6 +1,6 @@
 .comic-container
 {
-    padding-top: 30px;
+    padding-top: 10px;
 }
 .comic-reader
 {
@@ -25,7 +25,7 @@
             &.shown
             {
                 margin-left: 0;
-                padding: 15px;
+                padding: 12px 15px;
             }
         }
         .reader-guide-controls
@@ -49,6 +49,10 @@
                 margin: 2px 0;
             }
         }
+        .reader-social-buttons
+        {
+            padding: 12px 15px;
+        }
         .reader-view-controls
         {
         }
@@ -56,7 +60,7 @@
         .reader-guide-controls,
         .reader-view-controls
         {
-            .btn
+            .control-button
             {
                 padding: 15px 20px;
             }

@@ -1,4 +1,4 @@
-a
+a, button
 {
     cursor: pointer;
     text-decoration: none !important;
@@ -7,14 +7,36 @@ a
     {
         color: lighten(saturate($link-color, 25%), 10%);
     }
-    &.btn:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-warning):not(.btn-danger):not(.btn-info)
+    &.btn:not(.btn-primary):not(.btn-success):not(.btn-warning):not(.btn-danger):not(.btn-info):not(.btn-social-icon)
     {
         color: $text-color;
+        border: none;
 
         &:hover
         {
             color: $text-color;
             background: transparentize($gray, 0.8);
+        }
+    }
+    &.btn-default
+    {
+        color: $text-color;
+        background: $gray-lighter;
+
+        &:hover
+        {
+            color: $text-color;
+            background: $gray-light;
+        }
+    }
+    &.btn-social-icon
+    {
+        border: none;
+        font-size: 1.4em;
+
+        .fa
+        {
+            font-size: 1em;
         }
     }
 }

@@ -1,12 +1,14 @@
 <div class="comic-container">
     <div class="comic-reader">
+
+        <!-- Top Bar -->
         <div class="reader-top-bar" sticky top="54">
             <div class="row bottom-xs" style="margin: 0;">
                 <div class="reader-guide-heading" ng-class="{'shown': showGuide}">
                     Guide
                 </div>
                 <div class="reader-guide-controls">
-                    <a class="btn btn-lg" uib-tooltip="{{showGuide ? 'Hide' : 'Show'}} Guide" tooltip-placement="right" ng-click="showGuide = !showGuide">
+                    <a class="btn btn-lg control-button" ng-click="showGuide = !showGuide" uib-tooltip="{{showGuide ? 'Hide' : 'Show'}} Guide">
                         <span class="fa fa-lg" ng-class="{'fa-bars': !showGuide, 'fa-arrow-left': showGuide}"></span>
                     </a>
                 </div>
@@ -18,16 +20,35 @@
                         Episode Title Goes Here
                     </div>
                 </div>
-                <div class="reader-view-controls">
-                    <a class="btn btn-lg" uib-tooltip="Reader Mode" tooltip-placement="left">
-                        <span class="fa fa-lg fa-arrows-alt"></span>
+                <div class="reader-social-buttons">
+                    <a class="btn btn-social-icon btn-facebook" uib-tooltip="Facebook">
+                        <span class="fa fa-facebook"></span>
+                    </a>
+                    <a class="btn btn-social-icon btn-twitter" uib-tooltip="Twitter">
+                        <span class="fa fa-twitter"></span>
+                    </a>
+                    <a class="btn btn-social-icon btn-instagram" uib-tooltip="Instagram">
+                        <span class="fa fa-instagram"></span>
+                    </a>
+                    <a class="btn btn-social-icon btn-tumblr" uib-tooltip="Tumblr">
+                        <span class="fa fa-tumblr"></span>
+                    </a>
+                    <a class="btn btn-social-icon btn-default" uib-tooltip="Copy to Clipboard">
+                        <span class="fa fa-copy"></span>
                     </a>
                 </div>
+                <!--<div class="reader-view-controls">
+                    <a class="btn btn-lg control-button" uib-tooltip="Reader Mode">
+                        <span class="fa fa-lg fa-arrows-alt"></span>
+                    </a>
+                </div>-->
             </div>
         </div>
+
+        <!-- Main Area -->
         <div class="reader-main-area">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-offset-3 col-xs-6">
                     <img class="img-responsive center-block" src="../../../../../images/comic/page-1.jpg">
                 </div>
             </div>
