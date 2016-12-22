@@ -2,9 +2,12 @@
     <div class="comic-reader">
         <div class="reader-top-bar" sticky top="54">
             <div class="row bottom-xs" style="margin: 0;">
-                <div class="reader-guide-button">
-                    <a class="btn btn-lg" uib-tooltip="Guide" tooltip-placement="right">
-                        <span class="fa fa-lg fa-bars"></span>
+                <div class="reader-guide-heading" ng-class="{'shown': showGuide}">
+                    Guide
+                </div>
+                <div class="reader-guide-controls">
+                    <a class="btn btn-lg" uib-tooltip="{{showGuide ? 'Hide' : 'Show'}} Guide" tooltip-placement="right" ng-click="showGuide = !showGuide">
+                        <span class="fa fa-lg" ng-class="{'fa-bars': !showGuide, 'fa-arrow-left': showGuide}"></span>
                     </a>
                 </div>
                 <div class="reader-episode-meta-container col-xs">
@@ -15,7 +18,7 @@
                         Episode Title Goes Here
                     </div>
                 </div>
-                <div class="reader-guide-button">
+                <div class="reader-view-controls">
                     <a class="btn btn-lg" uib-tooltip="Reader Mode" tooltip-placement="left">
                         <span class="fa fa-lg fa-arrows-alt"></span>
                     </a>
@@ -26,6 +29,22 @@
             <div class="row">
                 <div class="col-xs-12">
                     <img class="img-responsive center-block" src="../../../../../images/comic/page-1.jpg">
+                </div>
+            </div>
+            <div class="reader-main-area-overlay">
+                <div class="reader-guide" ng-class="{'shown': showGuide}">
+                    <div class="row">
+                        <div class="col-xs">
+                            <h4>Chapter 1</h4>
+                            <hr>
+                            <h4>Chapter 2</h4>
+                            <hr>
+                            <h4>Chapter 3</h4>
+                            <hr>
+                            <h4>Chapter 4</h4>
+                            <hr>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

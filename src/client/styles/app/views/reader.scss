@@ -7,11 +7,28 @@
     .reader-top-bar
     {
         background: white;
-        //color: white;
+        overflow: hidden;
 
         border-bottom: $gray-lighter 1px solid;
 
-        .reader-guide-button
+        .reader-guide-heading
+        {
+            width: 25%;
+            overflow: hidden;
+            padding: 0;
+            font-size: $font-size-h3;
+
+            margin-left: -25%;
+
+            @include transitions(margin);
+
+            &.shown
+            {
+                margin-left: 0;
+                padding: 15px;
+            }
+        }
+        .reader-guide-controls
         {
         }
         .reader-episode-meta-container
@@ -32,19 +49,54 @@
                 margin: 2px 0;
             }
         }
-        .reader-controls
+        .reader-view-controls
         {
         }
 
-        .btn
+        .reader-guide-controls,
+        .reader-view-controls
         {
-            padding: 15px 20px;
+            .btn
+            {
+                padding: 15px 20px;
+            }
         }
     }
     .reader-main-area
     {
-        //background: $gray-base;
+        position: relative;
         padding: 30px 0;
+
+        .reader-main-area-overlay
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            overflow: hidden;
+
+            .reader-guide
+            {
+                position: absolute;
+                width: 25%;
+                height: 100%;
+                padding: 0;
+
+                background: transparentize($gray-lighter, 0.025);
+
+                margin-left: -25%;
+
+                @include transitions(margin);
+
+                &.shown
+                {
+                    margin-left: 0;
+                    padding: 0 15px;
+                }
+            }
+        }
     }
 
     // When it's sticky
