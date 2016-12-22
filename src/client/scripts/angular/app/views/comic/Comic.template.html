@@ -3,39 +3,37 @@
 
         <!-- Top Bar -->
         <div class="reader-top-bar" sticky top="54">
-            <div class="row bottom-xs" style="margin: 0;">
-                <div class="reader-guide-heading" ng-class="{'shown': showGuide}">
-                    Guide
-                </div>
-                <div class="reader-guide-controls">
-                    <a class="btn btn-lg control-button" ng-click="showGuide = !showGuide" uib-tooltip="{{showGuide ? 'Hide' : 'Show'}} Guide">
-                        <span class="fa fa-lg" ng-class="{'fa-bars': !showGuide, 'fa-arrow-left': showGuide}"></span>
-                    </a>
-                </div>
-                <div class="reader-episode-meta-container col-xs">
-                    <div class="reader-episode-meta">
-                        Chapter 4 Episode 12
-                    </div>
-                    <div class="reader-episode-title">
-                        Episode Title Goes Here
+            <div class="row bottom-xs">
+                <div class="col-md-1 hidden-xs hidden-sm">
+                    <div class="reader-guide-controls text-left">
+                        <a class="btn btn-lg control-button" ng-click="showGuide = !showGuide" uib-tooltip="{{showGuide ? 'Hide' : 'Show'}} Guide">
+                            <span class="fa fa-lg" ng-class="{'fa-bars': !showGuide, 'fa-arrow-left': showGuide}"></span>
+                            &nbsp;
+                            Guide
+                        </a>
                     </div>
                 </div>
-                <div class="reader-social-buttons">
-                    <a class="btn btn-social-icon btn-facebook" uib-tooltip="Facebook">
-                        <span class="fa fa-facebook"></span>
+                <div class="col-xs-1 text-right">
+                    <a class="btn btn-lg control-button" uib-tooltip="Previous Page">
+                        <span class="fa fa-lg fa-chevron-left"></span>
                     </a>
-                    <a class="btn btn-social-icon btn-twitter" uib-tooltip="Twitter">
-                        <span class="fa fa-twitter"></span>
+                </div>
+                <div class="col-xs-10 col-md-8">
+                    <div class="reader-episode-meta-container">
+                        <div class="reader-episode-meta">
+                            Chapter 4 Episode 12
+                        </div>
+                        <div class="reader-episode-title">
+                            Episode Title Goes Here
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 text-left">
+                    <a class="btn btn-lg control-button" uib-tooltip="Next Page">
+                        <span class="fa fa-lg fa-chevron-right"></span>
                     </a>
-                    <a class="btn btn-social-icon btn-instagram" uib-tooltip="Instagram">
-                        <span class="fa fa-instagram"></span>
-                    </a>
-                    <a class="btn btn-social-icon btn-tumblr" uib-tooltip="Tumblr">
-                        <span class="fa fa-tumblr"></span>
-                    </a>
-                    <a class="btn btn-social-icon btn-default" uib-tooltip="Copy to Clipboard">
-                        <span class="fa fa-copy"></span>
-                    </a>
+                </div>
+                <div class="col-xs-2 hidden-xs hidden-sm">
                 </div>
                 <!--<div class="reader-view-controls">
                     <a class="btn btn-lg control-button" uib-tooltip="Reader Mode">
@@ -48,23 +46,28 @@
         <!-- Main Area -->
         <div class="reader-main-area">
             <div class="row">
-                <div class="col-xs-offset-3 col-xs-6">
+                <div class="col-md-2">
+                </div>
+                <div class="col-xs-10 col-md-8">
                     <img class="img-responsive center-block" src="../../../../../images/comic/page-1.jpg">
                 </div>
-            </div>
-            <div class="reader-main-area-overlay">
-                <div class="reader-guide" ng-class="{'shown': showGuide}">
-                    <div class="row">
-                        <div class="col-xs">
-                            <h4>Chapter 1</h4>
-                            <hr>
-                            <h4>Chapter 2</h4>
-                            <hr>
-                            <h4>Chapter 3</h4>
-                            <hr>
-                            <h4>Chapter 4</h4>
-                            <hr>
-                        </div>
+                <div class="col-md-1 hidden-xs hidden-sm">
+                    <div class="reader-social-buttons" sticky top="115">
+                        <a class="btn btn-social-icon btn-facebook" uib-tooltip="Facebook">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-twitter" uib-tooltip="Twitter">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-instagram" uib-tooltip="Instagram">
+                            <span class="fa fa-instagram"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-tumblr" uib-tooltip="Tumblr">
+                            <span class="fa fa-tumblr"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-default" uib-tooltip="Copy to Clipboard">
+                            <span class="fa fa-copy"></span>
+                        </a>
                     </div>
                 </div>
             </div>

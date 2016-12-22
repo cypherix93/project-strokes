@@ -33,7 +33,7 @@
         }
         .reader-episode-meta-container
         {
-            padding: 10px 0;
+            padding: 10px 0 4px;
             margin-left: 15px;
             @include transitions(padding, 0.25s);
 
@@ -49,21 +49,13 @@
                 margin: 2px 0;
             }
         }
-        .reader-social-buttons
-        {
-            padding: 12px 15px;
-        }
         .reader-view-controls
         {
         }
 
-        .reader-guide-controls,
-        .reader-view-controls
+        .control-button
         {
-            .control-button
-            {
-                padding: 15px 20px;
-            }
+            padding: 15px 20px;
         }
     }
     .reader-main-area
@@ -71,34 +63,32 @@
         position: relative;
         padding: 30px 0;
 
-        .reader-main-area-overlay
+        .reader-guide
         {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            width: 25%;
+            height: 100%;
+            padding: 0;
 
-            overflow: hidden;
+            background: transparentize($gray-lighter, 0.025);
 
-            .reader-guide
+            margin-left: -25%;
+
+            @include transitions(margin);
+
+            &.shown
             {
-                position: absolute;
-                width: 25%;
-                height: 100%;
-                padding: 0;
+                margin-left: 0;
+                padding: 0 15px;
+            }
+        }
+        .reader-social-buttons
+        {
+            padding: 0 15px;
 
-                background: transparentize($gray-lighter, 0.025);
-
-                margin-left: -25%;
-
-                @include transitions(margin);
-
-                &.shown
-                {
-                    margin-left: 0;
-                    padding: 0 15px;
-                }
+            .btn
+            {
+                margin-bottom: 4px;
             }
         }
     }
@@ -110,7 +100,7 @@
         {
             .reader-episode-meta-container
             {
-                padding: 5px 0;
+                padding: 0;
 
                 .reader-episode-meta
                 {

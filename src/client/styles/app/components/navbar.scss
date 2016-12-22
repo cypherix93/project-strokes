@@ -56,3 +56,15 @@
         }
     }
 }
+
+// On xs screens, dont do the hide-show thing because there's no banner
+@media (max-width: $screen-xs-max) {
+    .navbar
+    {
+        .navbar-header
+        {
+            margin-left: 0;
+            opacity: 1;
+        }
+    }
+}
