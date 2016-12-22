@@ -1,33 +1,24 @@
 .comic-container
 {
     padding-top: 10px;
+
+    .reader-social-buttons
+    {
+        padding: 0 15px;
+
+        .btn
+        {
+            margin-bottom: 4px;
+        }
+    }
 }
 .comic-reader
 {
     .reader-top-bar
     {
         background: white;
-        overflow: hidden;
-
         border-bottom: $gray-lighter 1px solid;
 
-        .reader-guide-heading
-        {
-            width: 25%;
-            overflow: hidden;
-            padding: 0;
-            font-size: $font-size-h3;
-
-            margin-left: -25%;
-
-            @include transitions(margin);
-
-            &.shown
-            {
-                margin-left: 0;
-                padding: 12px 15px;
-            }
-        }
         .reader-guide-controls
         {
         }
@@ -80,15 +71,6 @@
             {
                 margin-left: 0;
                 padding: 0 15px;
-            }
-        }
-        .reader-social-buttons
-        {
-            padding: 0 15px;
-
-            .btn
-            {
-                margin-bottom: 4px;
             }
         }
     }
