@@ -41,13 +41,21 @@
                             </div>
                         </div>
                         <div class="col-xs">
-                            <div class="reader-view-controls text-right" ng-hide="$ctrl.isFullscreen">
-                                <a class="btn control-button" ng-click="$ctrl.openFullscreenReader()"
-                                   uib-tooltip="Reader Mode"
-                                   tooltip-append-to-body="!$ctrl.isFullscreen"
-                                   tooltip-placement="{{$ctrl.tooltipPlacement}}">
-                                    <span class="fa fa-lg fa-arrows-alt"></span>
-                                </a>
+                            <div class="reader-view-controls text-right">
+                                <span>
+                                    <a class="btn control-button" ng-click="$ctrl.openFullscreenReader()" ng-hide="$ctrl.isFullscreen"
+                                       uib-tooltip="Open Reader View">
+                                        <span class="fa fa-lg fa-arrows-alt"></span>
+                                    </a>
+                                </span>
+                                <span>
+                                    <a class="btn control-button" ng-click="$ctrl.closeFullscreenReader()" ng-show="$ctrl.isFullscreen"
+                                       uib-tooltip="Close Reader View"
+                                       tooltip-append-to-body="false"
+                                       tooltip-placement="bottom">
+                                        <span class="fa fa-lg fa-compress"></span>
+                                    </a>
+                                </span>
                             </div>
                         </div>
                     </div>

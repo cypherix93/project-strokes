@@ -9,9 +9,10 @@ var componentTemplate = require("./Comic.template.html");
 class ComicController implements IController
 {
     public state = false;
-
-    private readerElement: JQuery;
     public isFullscreen: boolean;
+
+    private fullscreenReader;
+    private readerElement: JQuery;
 
     constructor(private $scope, private $compile)
     {
@@ -42,23 +43,31 @@ class ComicController implements IController
         this.readerElement = temporary.appendTo(parent);
 
         // Initiate the fullscreen request
-        var fullscreenReader = fullscreen(this.readerElement.get(0));
-        fullscreenReader.request();
+        this.fullscreenReader = fullscreen(this.readerElement.get(0));
+        this.fullscreenReader.request();
 
         // Compile the fullscreen window with our scope
         this.$compile(this.readerElement)(this.$scope);
 
         // Set up the event handler to call after close
-        fullscreenReader.on("release", () =>
+        this.fullscreenReader.on("release", () =>
         {
             this.$scope.$apply(() =>
             {
                 this.isFullscreen = false;
             });
 
-            fullscreenReader.dispose();
+            this.fullscreenReader.dispose();
             this.readerElement.remove();
         });
+    }
+
+    public closeFullscreenReader()
+    {
+        if (!this.isFullscreen || !this.fullscreenReader)
+            return;
+
+        this.fullscreenReader.release();
     }
 }
 
