@@ -1,5 +1,5 @@
 <div class="comic-container">
-    <div class="comic-reader">
+    <div id="main-reader" class="comic-reader">
 
         <!-- Top Bar -->
         <div class="reader-top-bar" sticky top="54">
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-xs">
                             <div class="reader-view-controls text-right">
-                                <a class="btn control-button" uib-tooltip="Reader Mode">
+                                <a class="btn control-button" ng-click="$ctrl.openFullscreenReader()" uib-tooltip="Reader Mode">
                                     <span class="fa fa-lg fa-arrows-alt"></span>
                                 </a>
                             </div>
