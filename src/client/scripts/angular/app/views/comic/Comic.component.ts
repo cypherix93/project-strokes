@@ -4,6 +4,8 @@ import {registerRoute} from "../../../core/helpers/RoutingHelper";
 import fullscreen = require("fullscreen");
 import IController = angular.IController;
 
+var componentTemplate = require("./Comic.template.html");
+
 class ComicController implements IController
 {
     public state = false;
@@ -22,27 +24,29 @@ class ComicController implements IController
 
         this.isFullscreen = true;
 
-        var el = angular.element("#main-reader");
-        var elScope = el.scope();
-        var parent = el.parent();
+        // Save the parent to later append on to
+        var parent = angular.element("#main-reader").parent();
 
-        // Temporarily duplicate the leader to detach from the document
-        el = el.clone();
-        el.addClass("is-fullscreen");
+        // Get the template for this view and take the critical part
+        var template = angular.element(componentTemplate);
+        var temporary = template.find("#main-reader");
+
+        // Mark it as fullscreen element
+        temporary.addClass("is-fullscreen");
 
         // Remove sticky stuff for fullscreen
-        el.find("[sticky]").removeAttr("sticky").removeAttr("style");
-        el.find(".is-sticky").removeClass("is-sticky");
-        el.find(".sticky-wrapper").removeAttr("style");
+        temporary.find("[sticky]").removeAttr("sticky").removeAttr("style");
+        temporary.find(".is-sticky").removeClass("is-sticky");
+        temporary.find(".sticky-wrapper").removeAttr("style");
 
-        this.readerElement = el.appendTo(parent);
+        this.readerElement = temporary.appendTo(parent);
 
         // Initiate the fullscreen request
         var fullscreenReader = fullscreen(this.readerElement.get(0));
         fullscreenReader.request();
 
         // Compile the fullscreen window with our scope
-        this.$compile(this.readerElement)(elScope);
+        this.$compile(this.readerElement)(this.$scope);
 
         // Set up the event handler to call after close
         fullscreenReader.on("release", () =>
@@ -60,7 +64,7 @@ class ComicController implements IController
 
 AppModule.component("comicComponent", {
     controller: ComicController,
-    template: require("./Comic.template.html")
+    template: componentTemplate
 });
 
 registerRoute("comicState", {
