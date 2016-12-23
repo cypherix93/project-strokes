@@ -1,6 +1,7 @@
 import {AppModule} from "../App.module";
+import IController = angular.IController;
 
-class AppController
+class AppController implements IController
 {
 
 }

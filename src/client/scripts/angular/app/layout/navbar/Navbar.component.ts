@@ -1,8 +1,9 @@
 import {AppModule} from "../../../App.module";
 import {APP_META} from "../../../core/helpers/MetaHelper";
 import {AuthService} from "../../../core/services/auth/Auth.service";
+import IController = angular.IController;
 
-class NavbarController
+class NavbarController implements IController
 {
     public appMeta = APP_META;
 
