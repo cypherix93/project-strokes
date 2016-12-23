@@ -41,8 +41,8 @@
             .reader-episode-title
             {
                 @include transitions(font-size, 0.25s);
-                font-size: $font-size-h2;
-                margin: 2px 0;
+                font-size: $font-size-h3;
+                margin: 2px 0 0;
             }
         }
         .reader-view-controls
@@ -90,27 +90,6 @@
 
         padding: 15px 0;
     }
-
-    // When it's sticky
-    .sticky-wrapper.is-sticky
-    {
-        .reader-top-bar
-        {
-            .reader-episode-meta-container
-            {
-                padding: 0;
-
-                .reader-episode-meta
-                {
-                    font-size: $font-size-h6;
-                }
-                .reader-episode-title
-                {
-                    font-size: $font-size-h4;
-                }
-            }
-        }
-    }
 }
 .comic-reader.is-fullscreen
 {
@@ -126,6 +105,19 @@
         color: white;
         border-color: $gray-base;
 
+        .reader-episode-meta-container
+        {
+            padding: 4px 0 2px;
+
+            .reader-episode-meta
+            {
+                font-size: $font-size-h6;
+            }
+            .reader-episode-title
+            {
+                font-size: $font-size-h4;
+            }
+        }
         .control-button
         {
             color: white !important;
@@ -134,10 +126,12 @@
     .reader-main-area
     {
         background: $gray-base;
-        height: calc(100% - 160px);
+        height: calc(100% - 55px);
     }
     .reader-bottom-bar
     {
+        display: none;
+
         background: $gray-darker;
         color: white;
         border-color: $gray-base;
