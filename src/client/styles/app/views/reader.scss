@@ -74,6 +74,13 @@
             }
         }
     }
+    .reader-bottom-bar
+    {
+        background: white;
+        border-top: $gray-lighter 1px solid;
+
+        padding: 15px 0;
+    }
 
     // When it's sticky
     .sticky-wrapper.is-sticky
@@ -94,5 +101,36 @@
                 }
             }
         }
+    }
+}
+.comic-reader.is-fullscreen
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .reader-top-bar
+    {
+        background: $gray-darker;
+        color: white;
+        border-color: $gray-base;
+
+        .control-button
+        {
+            color: white !important;
+        }
+    }
+    .reader-main-area
+    {
+        background: $gray-base;
+        height: calc(100% - 160px);
+    }
+    .reader-bottom-bar
+    {
+        background: $gray-darker;
+        color: white;
+        border-color: $gray-base;
     }
 }

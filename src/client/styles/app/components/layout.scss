@@ -5,6 +5,11 @@ html, body
 
     background: $gray-lighter;
 }
+[hidden],
+template
+{
+    display: none !important;
+}
 #content-container
 {
     padding: 0 30px 30px;

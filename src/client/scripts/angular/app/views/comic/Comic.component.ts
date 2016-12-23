@@ -11,7 +11,7 @@ class ComicController implements IController
     private readerElement: JQuery;
     public isFullscreen: boolean;
 
-    constructor(private $compile)
+    constructor(private $scope, private $compile)
     {
     }
 
@@ -47,7 +47,11 @@ class ComicController implements IController
         // Set up the event handler to call after close
         fullscreenReader.on("release", () =>
         {
-            this.isFullscreen = false;
+            this.$scope.$apply(() =>
+            {
+                this.isFullscreen = false;
+            });
+
             fullscreenReader.dispose();
             this.readerElement.remove();
         });
