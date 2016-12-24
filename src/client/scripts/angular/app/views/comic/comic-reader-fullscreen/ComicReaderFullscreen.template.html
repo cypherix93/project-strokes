@@ -1,4 +1,4 @@
-<div class="comic-reader">
+<div class="comic-reader is-fullscreen">
 
     <!-- Main Area -->
     <div class="reader-main-area">
@@ -11,100 +11,41 @@
         </div>
     </div>
 
-
-
-
-
-
-
-    <!-- Top Bar -->
-    <div class="reader-top-bar">
-        <div class="row bottom-xs">
-            <div class="col-md-1 hidden-xs hidden-sm">
-                <div class="reader-guide-controls text-left">
-                    <a class="btn control-button" ng-click="showGuide = !showGuide"
-                       uib-tooltip="{{showGuide ? 'Hide' : 'Show'}} Guide"
-                       tooltip-append-to-body="!$ctrl.isFullscreen"
-                       tooltip-placement="{{$ctrl.tooltipPlacement}}">
-
-                        <span class="fa fa-lg" ng-class="{'fa-bars': !showGuide, 'fa-arrow-left': showGuide}"></span>
-                        &nbsp;
-                        Guide
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-1 text-right">
-                <a class="btn control-button" uib-tooltip="Previous Page"
-                   tooltip-append-to-body="!$ctrl.isFullscreen"
-                   tooltip-placement="{{$ctrl.tooltipPlacement}}">
-                    <span class="fa fa-lg fa-chevron-left"></span>
-                </a>
-            </div>
-            <div class="col-xs-10 col-md-8">
-                <div class="row bottom-xs">
-                    <div class="col-xs">
-                        <div class="reader-episode-meta-container">
-                            <div class="reader-episode-meta">
-                                Chapter 4 Episode 12
-                            </div>
-                            <div class="reader-episode-title">
-                                Episode Title Goes Here
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-1">
-                        <div class="reader-view-controls text-right">
-                                <span>
-                                    <a class="btn control-button" ng-click="$ctrl.openFullscreenReader()" ng-hide="$ctrl.isFullscreen"
-                                       uib-tooltip="Open Reader View">
-                                        <span class="fa fa-lg fa-arrows-alt"></span>
-                                    </a>
-                                </span>
-                            <span>
-                                    <a class="btn control-button" ng-click="$ctrl.closeFullscreenReader()" ng-show="$ctrl.isFullscreen"
-                                       uib-tooltip="Close Reader View"
-                                       tooltip-append-to-body="false"
-                                       tooltip-placement="bottom">
-                                        <span class="fa fa-lg fa-compress"></span>
-                                    </a>
-                                </span>
+    <!-- Player Controls -->
+    <div class="reader-bottom-bar">
+        <div class="row">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-8">
+                <div class="reader-player-controls">
+                    <div class="row middle-xs center-xs around-xs">
+                        <div class="col-xs">
+                            <a class="btn control-button">
+                                <span class="fa fa-2x fa-angle-double-left"></span>
+                            </a>
+                            <a class="btn control-button">
+                                <span class="fa fa-3x fa-chevron-left"></span>
+                            </a>
+                            <a class="btn control-button">
+                                <span class="fa fa-3x fa-chevron-right"></span>
+                            </a>
+                            <a class="btn control-button">
+                                <span class="fa fa-2x fa-angle-double-right"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-1 text-left">
-                <a class="btn control-button" uib-tooltip="Next Page"
-                   tooltip-append-to-body="!$ctrl.isFullscreen"
-                   tooltip-placement="{{$ctrl.tooltipPlacement}}">
-                    <span class="fa fa-lg fa-chevron-right"></span>
-                </a>
-            </div>
-            <div class="col-xs-2 hidden-xs hidden-sm">
             </div>
         </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="reader-bottom-bar">
-        <div class="row right-xs">
-            <div class="col-xs text-right">
-                <div class="reader-social-buttons">
-                    Share this shit:
-                    <a class="btn btn-social-icon btn-facebook" uib-tooltip="Facebook" tooltip-append-to-body="!$ctrl.isFullscreen">
-                        <span class="fa fa-facebook"></span>
-                    </a>
-                    <a class="btn btn-social-icon btn-twitter" uib-tooltip="Twitter" tooltip-append-to-body="!$ctrl.isFullscreen">
-                        <span class="fa fa-twitter"></span>
-                    </a>
-                    <a class="btn btn-social-icon btn-instagram" uib-tooltip="Instagram" tooltip-append-to-body="!$ctrl.isFullscreen">
-                        <span class="fa fa-instagram"></span>
-                    </a>
-                    <a class="btn btn-social-icon btn-tumblr" uib-tooltip="Tumblr" tooltip-append-to-body="!$ctrl.isFullscreen">
-                        <span class="fa fa-tumblr"></span>
-                    </a>
-                    <a class="btn btn-social-icon btn-default" uib-tooltip="Copy to Clipboard" tooltip-append-to-body="!$ctrl.isFullscreen">
-                        <span class="fa fa-copy"></span>
-                    </a>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="reader-episode-meta-container text-center">
+                    <div class="reader-episode-meta">
+                        Chapter 4 Episode 12
+                    </div>
+                    <div class="reader-episode-title">
+                        Episode Title Goes Here
+                    </div>
                 </div>
             </div>
         </div>

@@ -17,33 +17,25 @@
     display: flex;
     flex-direction: column;
 
+    .reader-episode-meta-container
+    {
+        padding: 10px 0 4px;
+
+        .reader-episode-meta
+        {
+            font-size: $font-size-h5;
+        }
+        .reader-episode-title
+        {
+            font-size: $font-size-h3;
+            margin: 2px 0 0;
+        }
+    }
+
     .reader-top-bar
     {
-        flex: 0 1 auto;
-
         background: white;
         border-bottom: $gray-lighter 1px solid;
-
-        .reader-guide-controls
-        {
-        }
-        .reader-episode-meta-container
-        {
-            padding: 10px 0 4px;
-
-            .reader-episode-meta
-            {
-                font-size: $font-size-h5;
-            }
-            .reader-episode-title
-            {
-                font-size: $font-size-h3;
-                margin: 2px 0 0;
-            }
-        }
-        .reader-view-controls
-        {
-        }
 
         .control-button
         {
@@ -79,8 +71,6 @@
     }
     .reader-bottom-bar
     {
-        flex: 0 1 auto;
-
         background: white;
         border-top: $gray-lighter 1px solid;
 
@@ -95,46 +85,36 @@
     right: 0;
     bottom: 0;
 
-    .reader-top-bar
-    {
-        background: $gray-darker;
-        color: white;
-        border-color: $gray-base;
-
-        &:hover
-        {
-            margin-top: 0;
-        }
-
-        .reader-episode-meta-container
-        {
-            padding: 4px 0 2px;
-
-            .reader-episode-meta
-            {
-                font-size: $font-size-h6;
-            }
-            .reader-episode-title
-            {
-                font-size: $font-size-h4;
-            }
-        }
-        .control-button
-        {
-            color: white !important;
-        }
-    }
     .reader-main-area
     {
         background: $gray-base;
-        height: calc(100% - 55px);
+        height: 100%;
     }
     .reader-bottom-bar
     {
-        display: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
 
-        background: $gray-darker;
+        height: 200px;
+
+        background: transparentize(darken($gray-darker, 10%), 0.05);
         color: white;
-        border-color: $gray-base;
+        border: none;
+
+        .reader-player-controls
+        {
+            .control-button
+            {
+                padding: 15px 30px;
+                color: $gray-lighter !important;
+
+                &:hover
+                {
+                    color: white !important;
+                }
+            }
+        }
     }
 }

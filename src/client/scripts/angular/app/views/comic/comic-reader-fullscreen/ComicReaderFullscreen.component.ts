@@ -1,18 +1,13 @@
 import * as angular from "angular";
 import IController = angular.IController;
-import {AppModule} from "../../../../App.module";
 import fullscreen = require("fullscreen");
+
+import {AppModule} from "../../../../App.module";
+import {ComicReaderFullscreenService} from "../../../../core/services/reader/ComicReaderFullscreen.service";
 
 class ComicReaderFullscreen implements IController
 {
-    private fullscreenReader;
-    private readerElement: JQuery;
-
-    constructor(private $scope, private $compile, private $timeout)
-    {
-    }
-
-    public closeFullscreenReader()
+    constructor(private ComicReaderFullscreenService: ComicReaderFullscreenService)
     {
     }
 }
