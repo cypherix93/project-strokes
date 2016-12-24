@@ -95,25 +95,50 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: 0;
 
+        padding-top: 0;
         height: 200px;
+        bottom: -160px;
 
         background: transparentize(darken($gray-darker, 10%), 0.05);
         color: white;
         border: none;
 
+        @include transitions(bottom);
+
         .reader-player-controls
         {
+            margin-top: 50px;
+            margin-bottom: 15px;
+
             .control-button
             {
-                padding: 15px 30px;
-                color: $gray-lighter !important;
+                margin: 0 15px;
+            }
+        }
+        .reader-bar-controls
+        {
+            position: absolute;
+            right: 0;
+        }
 
-                &:hover
-                {
-                    color: white !important;
-                }
+        .control-button
+        {
+            color: $gray-lighter !important;
+
+            &:hover
+            {
+                color: white !important;
+            }
+        }
+
+        &:hover
+        {
+            bottom: 0;
+
+            .reader-player-controls
+            {
+                margin-top: 15px;
             }
         }
     }
