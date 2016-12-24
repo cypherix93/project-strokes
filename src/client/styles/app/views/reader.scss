@@ -30,17 +30,13 @@
         .reader-episode-meta-container
         {
             padding: 10px 0 4px;
-            margin-left: 15px;
-            @include transitions(padding, 0.25s);
 
             .reader-episode-meta
             {
-                @include transitions(font-size, 0.25s);
                 font-size: $font-size-h5;
             }
             .reader-episode-title
             {
-                @include transitions(font-size, 0.25s);
                 font-size: $font-size-h3;
                 margin: 2px 0 0;
             }
@@ -104,6 +100,11 @@
         background: $gray-darker;
         color: white;
         border-color: $gray-base;
+
+        &:hover
+        {
+            margin-top: 0;
+        }
 
         .reader-episode-meta-container
         {

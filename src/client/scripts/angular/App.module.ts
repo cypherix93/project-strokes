@@ -18,7 +18,7 @@ export const AppModule = angular.module("AppModule");
 // Register all declarations here
 import "./core/config/**/*.config.ts";
 import "./core/services/**/*.service.ts";
-// import "./core/filters/**/*.filter.ts";
+// import "./core/filters/**/*.filter.ts"
 import "./core/directives/**/*.directive.ts";
 import "./app/**/*.component.ts";
 
