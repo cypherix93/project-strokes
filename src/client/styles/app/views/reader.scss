@@ -14,29 +14,25 @@
 }
 .comic-reader
 {
-    display: flex;
-    flex-direction: column;
-
-    .reader-episode-meta-container
-    {
-        padding: 10px 0 4px;
-
-        .reader-episode-meta
-        {
-            font-size: $font-size-h5;
-        }
-        .reader-episode-title
-        {
-            font-size: $font-size-h3;
-            margin: 2px 0 0;
-        }
-    }
-
     .reader-top-bar
     {
         background: white;
         border-bottom: $gray-lighter 1px solid;
 
+        .reader-episode-meta-container
+        {
+            padding: 10px 0 4px;
+
+            .reader-episode-meta
+            {
+                font-size: $font-size-h5;
+            }
+            .reader-episode-title
+            {
+                font-size: $font-size-h3;
+                margin: 2px 0 0;
+            }
+        }
         .control-button
         {
             padding: 15px 20px;
@@ -44,8 +40,6 @@
     }
     .reader-main-area
     {
-        flex: 1 1 auto;
-
         position: relative;
         padding: 30px 0;
 
@@ -85,41 +79,42 @@
     right: 0;
     bottom: 0;
 
-    .reader-main-area
-    {
-        background: $gray-base;
-        height: 100%;
-    }
-    .reader-bottom-bar
+    .reader-top-bar
     {
         position: absolute;
+        top: 0;
         left: 0;
         right: 0;
 
-        padding-top: 0;
-        height: 200px;
-        bottom: -160px;
+        z-index: 999;
 
-        background: transparentize(darken($gray-darker, 10%), 0.05);
-        color: white;
+        background: none;
         border: none;
 
-        @include transitions(bottom);
-
-        .reader-player-controls
+        .reader-info-controls
         {
-            margin-top: 50px;
-            margin-bottom: 15px;
-
             .control-button
             {
-                margin: 0 15px;
+                background: none !important;
             }
         }
-        .reader-bar-controls
+        .reader-player-controls
+        {
+        }
+        .reader-episode-meta-container
         {
             position: absolute;
+            top: 0;
+            left: 0;
             right: 0;
+            z-index: -1;
+
+            padding: 10px 0 50px 80px;
+
+            background: linear-gradient(to bottom, $gray-base, transparent);
+            color: white;
+
+            @include transitions(opacity);
         }
 
         .control-button
@@ -131,15 +126,10 @@
                 color: white !important;
             }
         }
-
-        &:hover
-        {
-            bottom: 0;
-
-            .reader-player-controls
-            {
-                margin-top: 15px;
-            }
-        }
+    }
+    .reader-main-area
+    {
+        background: $gray-base;
+        height: 100%;
     }
 }
