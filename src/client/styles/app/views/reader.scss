@@ -42,26 +42,6 @@
     {
         position: relative;
         padding: 30px 0;
-
-        .reader-guide
-        {
-            position: absolute;
-            width: 25%;
-            height: 100%;
-            padding: 0;
-
-            background: transparentize($gray-lighter, 0.025);
-
-            margin-left: -25%;
-
-            @include transitions(margin);
-
-            &.shown
-            {
-                margin-left: 0;
-                padding: 0 15px;
-            }
-        }
     }
     .reader-bottom-bar
     {
@@ -114,7 +94,14 @@
             background: linear-gradient(to bottom, $gray-base, transparent);
             color: white;
 
+            opacity: 0;
+
             @include transitions(opacity);
+
+            &.shown
+            {
+                opacity: 1;
+            }
         }
 
         .control-button
@@ -127,8 +114,29 @@
             }
         }
     }
+    .reader-guide
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -25%;
+
+        width: 25%;
+
+        background: darken($gray-darker, 10%);
+        color: white;
+
+        @include transitions(right);
+
+        &.shown
+        {
+            right: 0;
+        }
+    }
     .reader-main-area
     {
+        z-index: -1;
+
         background: $gray-base;
         height: 100%;
     }

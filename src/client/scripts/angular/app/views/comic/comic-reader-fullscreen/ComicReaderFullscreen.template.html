@@ -4,13 +4,13 @@
     <div class="reader-top-bar">
         <div class="reader-info-controls pull-left">
             <a class="btn control-button" ng-mouseenter="showInfo = true" ng-mouseleave="showInfo = false">
-                <span class="fa fa-lg fa-stack">
+                <span class="fa fa-stack">
                     <span class="fa fa-stack-2x fa-circle-thin"></span>
                     <span class="fa fa-stack-1x fa-info"></span>
                 </span>
             </a>
         </div>
-        <div class="reader-episode-meta-container" ng-style="{'opacity': showInfo ? 1 : 0}">
+        <div class="reader-episode-meta-container" ng-class="{'shown': showInfo}">
             <div class="reader-episode-meta">
                 Chapter 4 Episode 12
             </div>
@@ -19,12 +19,17 @@
             </div>
         </div>
         <div class="reader-player-controls pull-right">
-            <a class="btn control-button">
-                <span class="fa fa-lg fa-stack">
+            <a class="btn control-button" ng-click="showGuide = !showGuide">
+                <span class="fa fa-stack">
                     <span class="fa fa-lg fa-stack-1x fa-bars"></span>
                 </span>
             </a>
         </div>
+    </div>
+
+    <!-- Guide -->
+    <div class="reader-guide" ng-class="{'shown': showGuide}">
+
     </div>
 
     <!-- Main Area -->
