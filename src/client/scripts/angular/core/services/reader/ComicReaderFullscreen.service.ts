@@ -10,7 +10,7 @@ export class ComicReaderFullscreenService
 {
     private fullscreenReader;
 
-    constructor(private $rootScope, private $compile, private $timeout)
+    constructor(private $rootScope, private $compile)
     {
     }
 

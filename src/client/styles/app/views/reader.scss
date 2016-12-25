@@ -95,7 +95,7 @@
         {
             .control-button
             {
-                background: none !important;
+                background: none;
             }
         }
         .reader-player-controls
@@ -119,11 +119,11 @@
 
         .control-button
         {
-            color: $gray-lighter !important;
+            color: $gray;
 
             &:hover
             {
-                color: white !important;
+                color: white;
             }
         }
     }

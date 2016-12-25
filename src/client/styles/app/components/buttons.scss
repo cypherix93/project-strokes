@@ -7,7 +7,7 @@ a, button
     {
         color: lighten(saturate($link-color, 25%), 10%);
     }
-    &.btn:not(.btn-primary):not(.btn-success):not(.btn-warning):not(.btn-danger):not(.btn-info):not(.btn-social-icon)
+    &.btn.btn-transparent
     {
         color: $text-color;
         border: none;
