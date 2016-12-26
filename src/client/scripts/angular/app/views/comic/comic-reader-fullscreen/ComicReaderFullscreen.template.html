@@ -10,26 +10,38 @@
                 </span>
             </a>
         </div>
-        <div class="reader-episode-meta-container" ng-class="{'shown': showInfo}">
-            <div class="reader-episode-meta">
-                Chapter 4 Episode 12
-            </div>
-            <div class="reader-episode-title">
-                Episode Title Goes Here
-            </div>
-        </div>
         <div class="reader-player-controls pull-right">
             <a class="btn control-button" ng-click="showGuide = !showGuide">
                 <span class="fa fa-stack">
-                    <span class="fa fa-lg fa-stack-1x fa-bars"></span>
+                    <span class="fa fa-lg fa-stack-1x" ng-class="{'fa-bars': !showGuide, 'fa-arrow-right': showGuide}"></span>
                 </span>
             </a>
         </div>
     </div>
 
-    <!-- Guide -->
-    <div class="reader-guide" ng-class="{'shown': showGuide}">
+    <!-- Episode Meta Info -->
+    <div class="reader-episode-meta-container" ng-class="{'shown': showInfo}">
+        <div class="reader-episode-meta">
+            Chapter 4 Episode 12
+        </div>
+        <div class="reader-episode-title">
+            Episode Title Goes Here
+        </div>
+    </div>
 
+    <!-- Guide -->
+    <div class="reader-guide col-xs-6 col-sm-5 col-md-4 col-lg-3" ng-class="{'shown': showGuide}">
+        <h3>Guide</h3>
+        <hr>
+        <div class="row">
+            <div class="col-xs">
+                <div class="reader-arc-controls row">
+                    <a class="btn btn-sm btn-transparent">1</a>
+                    <a class="btn btn-sm btn-transparent">2</a>
+                    <a class="btn btn-sm btn-transparent">3</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Main Area -->

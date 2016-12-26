@@ -12,6 +12,8 @@
         }
     }
 }
+
+// Normal Reader
 .comic-reader
 {
     .reader-top-bar
@@ -19,29 +21,46 @@
         background: white;
         border-bottom: $gray-lighter 1px solid;
 
-        .reader-episode-meta-container
-        {
-            padding: 10px 0 4px;
-
-            .reader-episode-meta
-            {
-                font-size: $font-size-h5;
-            }
-            .reader-episode-title
-            {
-                font-size: $font-size-h3;
-                margin: 2px 0 0;
-            }
-        }
         .control-button
         {
             padding: 15px 20px;
+        }
+    }
+    .reader-episode-meta-container
+    {
+        padding: 10px 0 4px;
+
+        .reader-episode-meta
+        {
+            font-size: $font-size-h5;
+        }
+        .reader-episode-title
+        {
+            font-size: $font-size-h3;
+            margin: 2px 0 0;
         }
     }
     .reader-main-area
     {
         position: relative;
         padding: 30px 0;
+    }
+    .reader-guide
+    {
+        padding: 0 30px;
+
+        .reader-arc-controls
+        {
+            .btn
+            {
+                width: 26px;
+                height: 26px;
+
+                margin: 0 2px;
+                padding: 0;
+                line-height: 1.6;
+            }
+        }
     }
     .reader-bottom-bar
     {
@@ -51,6 +70,10 @@
         padding: 15px 0;
     }
 }
+
+// Fullscreen Reader
+$topBarZ: 999;
+
 .comic-reader.is-fullscreen
 {
     position: absolute;
@@ -66,7 +89,7 @@
         left: 0;
         right: 0;
 
-        z-index: 999;
+        z-index: $topBarZ;
 
         background: none;
         border: none;
@@ -81,29 +104,6 @@
         .reader-player-controls
         {
         }
-        .reader-episode-meta-container
-        {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: -1;
-
-            padding: 10px 0 50px 80px;
-
-            background: linear-gradient(to bottom, $gray-base, transparent);
-            color: white;
-
-            opacity: 0;
-
-            @include transitions(opacity);
-
-            &.shown
-            {
-                opacity: 1;
-            }
-        }
-
         .control-button
         {
             color: $gray;
@@ -114,14 +114,37 @@
             }
         }
     }
+    .reader-episode-meta-container
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: $topBarZ - 2;
+
+        padding: 10px 0 50px 80px;
+
+        background: linear-gradient(to bottom, $gray-base, transparent);
+        color: white;
+
+        opacity: 0;
+
+        @include transitions(opacity);
+
+        &.shown
+        {
+            opacity: 1;
+        }
+    }
     .reader-guide
     {
         position: absolute;
         top: 0;
         bottom: 0;
-        right: -25%;
+        right: -50%;
+        z-index: $topBarZ - 1;
 
-        width: 25%;
+        padding: 0 30px;
 
         background: darken($gray-darker, 10%);
         color: white;
@@ -131,6 +154,14 @@
         &.shown
         {
             right: 0;
+        }
+
+        .reader-arc-controls
+        {
+            .btn
+            {
+                border: $gray-darker 1px solid;
+            }
         }
     }
     .reader-main-area

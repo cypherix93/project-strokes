@@ -9,23 +9,23 @@ a, button
     }
     &.btn.btn-transparent
     {
-        color: $text-color;
+        color: inherit;
         border: none;
 
         &:hover
         {
-            color: $text-color;
+            color: inherit;
             background: transparentize($gray, 0.8);
         }
     }
     &.btn-default
     {
-        color: $text-color;
+        color: inherit;
         background: $gray-lighter;
 
         &:hover
         {
-            color: $text-color;
+            color: inherit;
             background: $gray-light;
         }
     }
