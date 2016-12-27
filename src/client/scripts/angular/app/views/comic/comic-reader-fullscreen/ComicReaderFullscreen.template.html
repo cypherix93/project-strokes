@@ -42,58 +42,36 @@
                     <a class="btn btn-sm btn-transparent">3</a>
                 </div>
                 <div class="guide-chapters">
-                    <div class="guide-chapter-wrapper">
-                        <div class="chapter-title">Chapter 1</div>
-                        <div class="chapter-pages-wrapper">
-                            <div class="chapter-page">Page 1</div>
-                            <div class="chapter-page">Page 2</div>
-                            <div class="chapter-page">Page 3</div>
-                            <div class="chapter-page">Page 4</div>
-                            <div class="chapter-page">Page 5</div>
-                            <div class="chapter-page">Page 6</div>
-                            <div class="chapter-page">Page 7</div>
-                            <div class="chapter-page">Page 8</div>
+                    <script type="text/ng-template" id="accordion-group-template.html">
+                        <div class="guide-chapter-wrapper">
+                            <div ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                                <div class="chapter-title">
+                                    <div class="chapter-expand-control pull-right">
+                                        <span class="fa" ng-class="{'fa-chevron-down': status.open, 'fa-chevron-right': !status.open}"></span>
+                                    </div>
+                                    <div uib-accordion-header>
+                                        {{heading}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="collapse" uib-collapse="!isOpen">
+                                <div ng-transclude></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="guide-chapter-wrapper">
-                        <div class="chapter-title">Chapter 2</div>
-                        <div class="chapter-pages-wrapper">
-                            <div class="chapter-page">Page 1</div>
-                            <div class="chapter-page">Page 2</div>
-                            <div class="chapter-page">Page 3</div>
-                            <div class="chapter-page">Page 4</div>
-                            <div class="chapter-page">Page 5</div>
-                            <div class="chapter-page">Page 6</div>
-                            <div class="chapter-page">Page 7</div>
-                            <div class="chapter-page">Page 8</div>
+                    </script>
+
+                    <uib-accordion>
+                        <div ng-repeat="i in [].constructor(4) track by $index">
+                            <div uib-accordion-group template-url="accordion-group-template.html">
+                                <uib-accordion-heading>Chapter {{$index+1}}</uib-accordion-heading>
+                                <div class="chapter-pages-wrapper">
+                                    <div class="chapter-page" ng-repeat="j in [].constructor(8) track by $index">
+                                        Page {{$index+1}}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="guide-chapter-wrapper">
-                        <div class="chapter-title">Chapter 3</div>
-                        <div class="chapter-pages-wrapper">
-                            <div class="chapter-page">Page 1</div>
-                            <div class="chapter-page">Page 2</div>
-                            <div class="chapter-page">Page 3</div>
-                            <div class="chapter-page">Page 4</div>
-                            <div class="chapter-page">Page 5</div>
-                            <div class="chapter-page">Page 6</div>
-                            <div class="chapter-page">Page 7</div>
-                            <div class="chapter-page">Page 8</div>
-                        </div>
-                    </div>
-                    <div class="guide-chapter-wrapper">
-                        <div class="chapter-title">Chapter 4</div>
-                        <div class="chapter-pages-wrapper">
-                            <div class="chapter-page">Page 1</div>
-                            <div class="chapter-page">Page 2</div>
-                            <div class="chapter-page">Page 3</div>
-                            <div class="chapter-page">Page 4</div>
-                            <div class="chapter-page">Page 5</div>
-                            <div class="chapter-page">Page 6</div>
-                            <div class="chapter-page">Page 7</div>
-                            <div class="chapter-page">Page 8</div>
-                        </div>
-                    </div>
+                    </uib-accordion>
                 </div>
             </div>
         </div>

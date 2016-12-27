@@ -63,8 +63,25 @@
         }
         .guide-chapters
         {
-            margin: 15px 0;
+            margin-top: 15px;
 
+            .panel-group
+            {
+                margin: 0;
+
+                .panel
+                {
+                    background: none;
+
+                    &.panel-open
+                    {
+                        .chapter-expand-control
+                        {
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+            }
             .guide-chapter-wrapper
             {
                 border-top: $gray-darker 1px solid;
@@ -82,9 +99,15 @@
                     {
                         background: transparentize($gray-dark, 0.5);
                     }
+
+                    .chapter-expand-control
+                    {
+                        @include transitions(transform);
+                    }
                 }
                 .chapter-pages-wrapper
                 {
+                    padding-bottom: 15px;
                     padding-left: 15px;
                     border-top: $gray-darker 1px solid;
 
