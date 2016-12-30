@@ -19,11 +19,6 @@
     .reader-top-bar
     {
         border-bottom: $border-color 1px solid;
-
-        .control-button
-        {
-            padding: 15px 20px;
-        }
     }
     .reader-episode-meta-container
     {
@@ -136,7 +131,15 @@
     {
         border-top: $border-color 1px solid;
 
-        padding: 15px 0;
+        .reader-social-buttons
+        {
+            padding: 15px 0;
+        }
+    }
+
+    .control-button
+    {
+        padding: 15px 20px;
     }
 }
 
@@ -168,18 +171,6 @@ $topBarZ: 999;
             .control-button
             {
                 background: none;
-            }
-        }
-        .reader-player-controls
-        {
-        }
-        .control-button
-        {
-            color: $gray;
-
-            &:hover
-            {
-                color: white;
             }
         }
     }
@@ -232,23 +223,6 @@ $topBarZ: 999;
                 border: $gray-darker 1px solid;
             }
         }
-        .guide-chapters
-        {
-            .guide-chapter-wrapper
-            {
-                .chapter-title
-                {
-
-                }
-                .chapter-pages-wrapper
-                {
-                    .chapter-page
-                    {
-
-                    }
-                }
-            }
-        }
     }
     .reader-main-area
     {
@@ -256,5 +230,27 @@ $topBarZ: 999;
 
         background: $gray-base;
         height: 100%;
+    }
+    .reader-bottom-bar
+    {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        z-index: $topBarZ;
+
+        background: none;
+        border: none;
+    }
+
+    .control-button
+    {
+        color: $gray;
+
+        &:hover
+        {
+            color: white;
+        }
     }
 }
