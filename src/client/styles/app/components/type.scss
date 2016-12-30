@@ -6,12 +6,12 @@ h1, h2, h3, h4, h5, h6,
 }
 .page-header
 {
-    border-color: transparentize($gray-light, 0.5);
+    border-color: $border-color;
 }
 hr
 {
     float: none;
     clear: both;
     margin: 20px 0;
-    border-color: transparentize($gray-light, 0.5);
+    border-color: $border-color;
 }

@@ -8,7 +8,7 @@ $gray:                  lighten($gray-base, 50.0%);
 $gray-light:            lighten($gray-base, 75%);
 $gray-lighter:          lighten($gray-base, 90.0%);
 
-$brand-primary:         #50729f;
+$brand-primary:         #446288;
 $brand-success:         #3FAD46;
 $brand-info:            #9c5bde;
 $brand-warning:         #f0ad4e;
@@ -42,10 +42,16 @@ $headings-font-family:    $font-family-sans-serif;
 
 $font-size-base: 16px;
 
+$text-color: white;
+$text-shadow: transparentize($gray-base, 0.9) 0 0 1px;
+
 $fa-font-path: "~font-awesome/fonts/";
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
-$text-shadow: transparentize($gray-base, 0.9) 0 0 1px;
+
+/* Border Stuff */
+$border-color: transparentize($gray-dark, 0.5);
+
 
 /* Nav-Bar */
 $navbar-inverse-bg: $brand-primary;

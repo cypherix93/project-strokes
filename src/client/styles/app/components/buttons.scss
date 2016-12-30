@@ -21,12 +21,12 @@ a, button
     &.btn-default
     {
         color: inherit;
-        background: $gray-lighter;
+        background: $gray-dark;
 
         &:hover
         {
             color: inherit;
-            background: $gray-light;
+            background: $gray-darker;
         }
     }
     &.btn-social-icon

@@ -1,9 +1,11 @@
 ﻿.navbar
 {
-    height: 54px;
+    height: 52px;
     padding: 0 30px;
     margin-bottom: 0;
-    @include shadowfy();
+    border: none;
+
+    @include shadowfy(0.2);
 
     .navbar-header
     {
