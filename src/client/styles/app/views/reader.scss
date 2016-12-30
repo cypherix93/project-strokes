@@ -43,6 +43,11 @@
     {
         position: relative;
         padding: 30px 0;
+
+        .reader-page-image
+        {
+            @include shadowfy(0, 15px);
+        }
     }
     .reader-guide
     {
@@ -189,7 +194,6 @@ $topBarZ: 999;
         padding: 10px 0 50px 80px;
 
         background: linear-gradient(to bottom, $gray-base, transparent);
-        color: white;
 
         opacity: 0;
 
@@ -205,19 +209,20 @@ $topBarZ: 999;
         position: absolute;
         top: 0;
         bottom: 0;
-        right: -50%;
+        right: 0;
         z-index: $topBarZ - 1;
 
         padding: 0 30px;
 
-        background: darken($gray-darker, 10%);
-        color: white;
+        background: darken($brand-primary, 32%);
 
-        @include transitions(right);
+        transform: translate(100%, 0);
+
+        @include transitions(transform);
 
         &.shown
         {
-            right: 0;
+            transform: translate(0, 0);
         }
 
         .guide-arc-controls
