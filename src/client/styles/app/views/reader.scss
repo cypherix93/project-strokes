@@ -230,6 +230,12 @@ $topBarZ: 999;
 
         background: $gray-base;
         height: 100%;
+
+        .reader-page-image
+        {
+            max-width: 98vw;
+            max-height: 98vh;
+        }
     }
     .reader-bottom-bar
     {
