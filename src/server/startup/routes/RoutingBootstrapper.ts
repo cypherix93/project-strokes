@@ -4,7 +4,7 @@ import path = require("path");
 import {Express} from "express";
 import {useExpressServer} from "routing-controllers";
 
-import {CONFIG} from "../Config";
+import {CONFIG} from "../../config/Config";
 import {ErrorsConfig} from "./ErrorsConfig";
 import {LOGGER} from "../../helpers/Logger";
 
@@ -16,7 +16,7 @@ export class RoutingBootstrapper
 
         // Setup routing-controllers
         useExpressServer(app, {
-            controllers: [path.join(CONFIG.rootPath, "controllers/**/*.js")]
+            controllers: [path.join(CONFIG.rootPath, "api/controllers/**/*.js")]
         });
 
         // Setup error handlers for all routes

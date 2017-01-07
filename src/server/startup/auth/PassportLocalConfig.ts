@@ -1,5 +1,5 @@
 import {Strategy} from "passport-local";
-import {AuthWorker} from "../../workers/AuthWorker";
+import {AuthWorker} from "../../api/workers/AuthWorker";
 
 async function strategyHandler(identifier, password, next)
 {

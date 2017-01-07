@@ -1,8 +1,7 @@
 import url = require("url");
 import {Request, Response} from "express-serve-static-core";
 import {JsonController, Get, Res, Patch, Req, UseBefore, Param} from "routing-controllers";
-import {authorize} from "../../middlewares/Authorize";
-import {IComicPage} from "../../../client/scripts/angular/core/models/comic/IComicPage";
+import {IComicPage} from "../../../database/models/IComicPage";
 
 @JsonController("/comic")
 export class ComicController

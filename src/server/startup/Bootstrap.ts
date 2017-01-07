@@ -17,7 +17,7 @@ export class Bootstrap
         app.use(bodyParser.urlencoded({extended: true}));
 
         // Connect to ArangoDB
-        await DatabaseBootstrapper.init();
+        // await DatabaseBootstrapper.init();
 
         // Setup authentication
         AuthConfig.init(app);

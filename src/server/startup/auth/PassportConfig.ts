@@ -3,7 +3,7 @@ import * as session from "express-session";
 
 import {Express} from "express";
 import {LOCAL_STRATEGY} from "./PassportLocalConfig";
-import {CONFIG} from "../Config";
+import {CONFIG} from "../../config/Config";
 
 export class PassportConfig
 {

@@ -1,7 +1,7 @@
 import {JsonController, Post, Req, Res, UseBefore, Get} from "routing-controllers";
 import {authorize, login, register} from "../../middlewares/Authorize";
 import {AuthWorker} from "../../workers/AuthWorker";
-import {AuthHelper} from "../../helpers/AuthHelper";
+import {AuthHelper} from "../../../helpers/AuthHelper";
 
 @JsonController("/auth")
 export class AuthController

@@ -1,10 +1,10 @@
 import * as moment from "moment";
 import * as jwt from "jsonwebtoken";
 
-import {CONFIG} from "../config/Config";
-import {IUser} from "../database/models/IUser";
-import {DatabaseContainer} from "../database/DatabaseContainer";
-import {AuthHelper, IPassportUser} from "../helpers/AuthHelper";
+import {CONFIG} from "../../config/Config";
+import {IUser} from "../../database/models/IUser";
+import {DatabaseContainer} from "../../database/DatabaseContainer";
+import {AuthHelper, IPassportUser} from "../../helpers/AuthHelper";
 
 // Middleware to hook up JWT
 export function jsonWebToken()

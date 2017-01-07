@@ -1,10 +1,10 @@
 import * as validator from "validator";
 import * as passport from "passport";
 
-import {AuthHelper, IPassportUser} from "../helpers/AuthHelper";
-import {IPayload} from "../interfaces/IPayload";
-import {DatabaseContainer} from "../database/DatabaseContainer";
-import {CryptoHelper} from "../helpers/CryptoHelper";
+import {AuthHelper, IPassportUser} from "../../helpers/AuthHelper";
+import {IPayload} from "../../interfaces/IPayload";
+import {DatabaseContainer} from "../../database/DatabaseContainer";
+import {CryptoHelper} from "../../helpers/CryptoHelper";
 
 export class AuthWorker
 {

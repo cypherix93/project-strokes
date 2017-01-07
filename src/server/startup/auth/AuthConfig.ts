@@ -2,10 +2,10 @@ import cookieParser = require("cookie-parser");
 import cors = require("cors");
 
 import {Express} from "express";
-import {CONFIG} from "../Config";
+import {CONFIG} from "../../config/Config";
 import {LOGGER} from "../../helpers/Logger";
 import {PassportConfig} from "./PassportConfig";
-import {jsonWebToken} from "../../middlewares/JsonWebToken";
+import {jsonWebToken} from "../../api/middlewares/JsonWebToken";
 
 export class AuthConfig
 {
