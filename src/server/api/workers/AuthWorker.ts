@@ -3,8 +3,10 @@ import * as passport from "passport";
 
 import {AuthHelper, IPassportUser} from "../../helpers/AuthHelper";
 import {IPayload} from "../../interfaces/IPayload";
-import {DatabaseContainer} from "../../database/DatabaseContainer";
 import {CryptoHelper} from "../../helpers/CryptoHelper";
+import {SessionManager} from "../../database/SessionFactory";
+import {User} from "../../database/models/auth/User";
+import {Passport} from "../../database/models/auth/Passport";
 
 export class AuthWorker
 {
@@ -48,23 +50,28 @@ export class AuthWorker
             });
         }
 
-        var context = await DatabaseContainer.getContext();
+        var session = SessionManager.createSession();
 
         // User input was valid, so let's create an account for them
-        var newUser = await context.users.save({
-            username: input.username || input.email,
-            email: input.email,
-            createdAt: new Date(),
-            roles: ["User"]
-        });
+        var newUser = new User();
+        newUser.username = input.username || input.email;
+        newUser.email = input.email;
+        newUser.createdAt = new Date();
+        newUser.roles = ["User"];
+        newUser.passports = [];
 
-        // Make new passport for the new user
-        await context.passports.save({
-            protocol: "local",
-            password: CryptoHelper.hashPassword(input.password),
-            accessToken: CryptoHelper.generateAccessToken(),
-            userId: newUser._key
-        });
+        // Create the passport for the user
+        var newPassport = new Passport();
+        newPassport.protocol = "local";
+        newPassport.password = CryptoHelper.hashPassword(input.password);
+        newPassport.accessToken = CryptoHelper.generateAccessToken();
+
+        // Add the passport to the user
+        newUser.passports.push(newPassport);
+
+        session.save(newUser);
+
+        session.close();
 
         // Auto login and set user to session
         AuthHelper.registerUserToSession(newUser, request, response, next);

@@ -1,5 +1,5 @@
 import {Field, Entity, ElementType} from "hydrate-mongodb";
-import {Model} from "../../framework/base/Model";
+import {Model} from "../../base/Model";
 import {Page} from "./Page";
 
 @Entity()

@@ -2,9 +2,9 @@ import * as moment from "moment";
 import * as jwt from "jsonwebtoken";
 
 import {CONFIG} from "../../config/Config";
-import {IUser} from "../../database/models/IUser";
-import {DatabaseContainer} from "../../database/DatabaseContainer";
 import {AuthHelper, IPassportUser} from "../../helpers/AuthHelper";
+import {SessionManager} from "../../database/SessionFactory";
+import {User} from "../../database/models/auth/User";
 
 // Middleware to hook up JWT
 export function jsonWebToken()
@@ -70,10 +70,12 @@ async function refreshTokenIfExpired(decoded: IPassportUser): Promise<{data: {de
         };
     }
 
-    var context = await DatabaseContainer.getContext();
+    var session = SessionManager.createSession();
 
     // Otherwise, let's recheck the database and make sure User claims the correct stuff
-    var dbUser = await context.users.findById(decoded._key);
+    var dbUser = await session.find(User, decoded.id).asPromise();
+
+    session.close();
 
     // If user does not exist anymore, invalidate the session user
     if (!dbUser)

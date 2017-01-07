@@ -1,5 +1,5 @@
 import {Field, Entity, ElementType, Fetch, FetchType} from "hydrate-mongodb";
-import {Model} from "../../framework/base/Model";
+import {Model} from "../../base/Model";
 import {Passport} from "./Passport";
 
 @Entity()

@@ -1,5 +1,5 @@
 import {Field, Entity, ElementType} from "hydrate-mongodb";
-import {Model} from "../../framework/base/Model";
+import {Model} from "../../base/Model";
 
 @Entity()
 export class Page extends Model

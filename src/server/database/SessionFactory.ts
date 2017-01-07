@@ -1,8 +1,8 @@
-import {SessionFactory as Factory} from "hydrate-mongodb";
+import {SessionFactory} from "hydrate-mongodb";
 
-export var SessionFactory;
+export var SessionManager: SessionFactory;
 
-export function initSessionFactory(sessionFactory: Factory)
+export function initSessionFactory(sessionFactory: SessionFactory)
 {
-    SessionFactory = sessionFactory;
+    SessionManager = sessionFactory;
 }

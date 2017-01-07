@@ -1,4 +1,3 @@
-import {DatabaseContainer} from "../../../database/DatabaseContainer";
 import {JsonController, Get, Res, Patch, Req, UseBefore, Param} from "routing-controllers";
 import {authorize} from "../../middlewares/Authorize";
 
