@@ -21,12 +21,10 @@ export interface IAppConfig
             }
         }
     };
-    arango: {
-        host: string,
-        port: number,
-        database: string,
-        username: string,
-        password: string
-    },
-    settings?: any
+    db: {
+        connectionString: string,
+        username?:string,
+        password?:string
+    };
+    settings?: any;
 }

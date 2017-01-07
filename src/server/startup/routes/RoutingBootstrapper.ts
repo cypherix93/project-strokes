@@ -10,7 +10,7 @@ import {LOGGER} from "../../helpers/Logger";
 
 export class RoutingBootstrapper
 {
-    public static init(app:Express)
+    public static async init(app:Express)
     {
         LOGGER.info("Setting up Routes...");
 

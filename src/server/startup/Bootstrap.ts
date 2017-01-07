@@ -2,7 +2,7 @@ import * as bodyParser from "body-parser";
 
 import {Express} from "express";
 import {DatabaseBootstrapper} from "./db/DatabaseBootstrapper";
-import {AuthConfig} from "./auth/AuthConfig";
+import {AuthBootstrapper} from "./auth/AuthBootstrapper";
 import {RoutingBootstrapper} from "./routes/RoutingBootstrapper";
 import {LOGGER} from "../helpers/Logger";
 
@@ -16,13 +16,13 @@ export class Bootstrap
         app.use(bodyParser.json());
         app.use(bodyParser.urlencoded({extended: true}));
 
-        // Connect to ArangoDB
-        // await DatabaseBootstrapper.init();
+        // Connect to MongoDB
+        await DatabaseBootstrapper.init();
 
         // Setup authentication
-        AuthConfig.init(app);
+        await AuthBootstrapper.init(app);
 
         // Setup routes
-        RoutingBootstrapper.init(app);
+        await RoutingBootstrapper.init(app);
     }
 }

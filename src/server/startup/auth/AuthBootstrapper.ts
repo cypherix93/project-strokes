@@ -7,9 +7,9 @@ import {LOGGER} from "../../helpers/Logger";
 import {PassportConfig} from "./PassportConfig";
 import {jsonWebToken} from "../../api/middlewares/JsonWebToken";
 
-export class AuthConfig
+export class AuthBootstrapper
 {
-    public static init(app: Express)
+    public static async init(app: Express)
     {
         LOGGER.info("Setting up Auth...");
 

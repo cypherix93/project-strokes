@@ -20,7 +20,7 @@ export const CONFIG: IAppConfig = {
         secret: process.env.JWT_SECRET || "asdfghjkl",
         expiryInMinutes: 30,
         cookie: {
-            name: process.env.JWT_COOKIE || "project.strokes.presence",
+            name: process.env.JWT_COOKIE || "project.elegantstrokes.presence",
             options: {
                 httpOnly: true,
                 secure: !isDevEnv,
@@ -28,12 +28,8 @@ export const CONFIG: IAppConfig = {
             }
         }
     },
-    arango: {
-        host: process.env.ARANGO_HOST || "localhost",
-        port: process.env.ARANGO_PORT || 8529,
-        database: process.env.ARANGO_DBNAME || "Project.Strokes",
-        username: process.env.ARANGO_USER || "admin",
-        password: process.env.ARANGO_PASS || "admin123"
+    db: {
+        connectionString: "mongodb://localhost:27017/project-elegant-strokes"
     },
     settings: {
         images: {
