@@ -8,12 +8,12 @@ import {CONFIG} from "../../../config/Config";
 @Controller("/images")
 export class ImagesController
 {
-    @Get("/:imageId")
+    @Get("/:file")
     @ContentType("jpeg")
     @EmptyResultCode(404)
-    public async getImage(@Req() req: Request, @Res() res: Response, @Param("imageId") imageId: string)
+    public async getImage(@Req() req: Request, @Res() res: Response, @Param("file") file: string)
     {
-        var imageFile = `${imageId}`;
+        var imageFile = `${file}`;
         var imagePath = path.join(CONFIG.settings.images.uploadPath, imageFile);
 
         try

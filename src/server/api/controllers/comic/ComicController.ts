@@ -12,11 +12,7 @@ export class ComicController
         var comicPage: IComicPage = {
             chapter: chapter,
             episode: episode,
-            imageUrl: url.format({
-                protocol: req.protocol,
-                hostname: req.hostname,
-                pathname: req.originalUrl
-            })
+            imageUrl: `https://unsplash.it/1200/1600/?random=${chapter}+${episode}`
         };
 
         return {
