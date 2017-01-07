@@ -84,22 +84,23 @@ export class AuthWorker
         if (!email || !password)
             return {error: "Email and Password must be specified."};
 
-        var context = await DatabaseContainer.getContext();
+        var session = SessionManager.createSession();
 
         // Check if user exists
-        var dbUser = await context.users.find({email: email});
+        var dbUser = await session.query(User).findOne({email: email}).fetch("passports").asPromise();
+
+        session.close();
 
         if (!dbUser)
             return {error: "Email or Password is not valid."};
 
         // Now check password if it matches the user's associated Passport
-        var dbPassport = await context.passports
-            .find({userId: dbUser._key, protocol: "local"});
+        var passport = dbUser.passports.find(x => x.protocol === "local");
 
-        if (!dbPassport)
+        if (!passport)
             return {error: "Password has not been set for this account."};
 
-        var isPasswordValid = CryptoHelper.validatePassword(password, dbPassport.password);
+        var isPasswordValid = CryptoHelper.validatePassword(password, passport.password);
 
         if (!isPasswordValid)
             return {error: "Email or Password is not valid."};
@@ -127,10 +128,12 @@ export class AuthWorker
         if (input.password.length < passwordMinLength)
             return {error: "Password must be at least " + passwordMinLength + " characters long."};
 
-        var context = await DatabaseContainer.getContext();
+        var session = SessionManager.createSession();
 
         // Check if user already exists
-        var user = await context.users.find({email: input.email});
+        var user = await session.query(User).findOne({email: input.email}).asPromise();
+
+        session.close();
 
         if (user)
             return {error: "A user with the same email already exists."};
