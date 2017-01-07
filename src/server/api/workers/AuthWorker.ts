@@ -4,7 +4,7 @@ import * as passport from "passport";
 import {AuthHelper, IPassportUser} from "../../helpers/AuthHelper";
 import {IPayload} from "../../interfaces/IPayload";
 import {CryptoHelper} from "../../helpers/CryptoHelper";
-import {SessionManager} from "../../database/SessionFactory";
+import {SessionManager} from "../../database/SessionManager";
 import {User} from "../../database/models/auth/User";
 import {Passport} from "../../database/models/auth/Passport";
 

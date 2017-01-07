@@ -1,6 +1,6 @@
 import {JsonController, Get, Res, Patch, Req, UseBefore, Param} from "routing-controllers";
 import {authorize} from "../../middlewares/Authorize";
-import {SessionManager} from "../../../database/SessionFactory";
+import {SessionManager} from "../../../database/SessionManager";
 import {User} from "../../../database/models/auth/User";
 
 @JsonController("/account")

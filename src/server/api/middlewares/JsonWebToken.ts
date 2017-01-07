@@ -3,7 +3,7 @@ import * as jwt from "jsonwebtoken";
 
 import {CONFIG} from "../../config/Config";
 import {AuthHelper, IPassportUser} from "../../helpers/AuthHelper";
-import {SessionManager} from "../../database/SessionFactory";
+import {SessionManager} from "../../database/SessionManager";
 import {User} from "../../database/models/auth/User";
 
 // Middleware to hook up JWT

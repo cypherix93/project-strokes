@@ -1,4 +1,4 @@
-import {Field, Entity, Embeddable} from "hydrate-mongodb";
+import {Field, Entity, Embeddable, Type} from "hydrate-mongodb";
 import {Model} from "../../base/Model";
 
 @Embeddable()
@@ -19,6 +19,6 @@ export class Passport extends Model
     @Field()
     public identifier: string;
 
-    @Field()
+    // TODO: Figure out how to store 'any' types in mongo
     public tokens: any;
 }

@@ -4,7 +4,7 @@ import {Configuration, AnnotationMappingProvider} from "hydrate-mongodb";
 
 import {LOGGER} from "../../helpers/Logger";
 import {CONFIG} from "../../config/Config";
-import {initSessionFactory} from "../../database/SessionFactory";
+import {initSessionManager} from "../../database/SessionManager";
 
 import * as models from "../../database/models/Models";
 
@@ -30,7 +30,12 @@ export class DatabaseBootstrapper
 
             config.createSessionFactory(db, (err, sessionFactory) =>
             {
-                initSessionFactory(sessionFactory);
+                if (err)
+                {
+                    def.reject(err);
+                }
+
+                initSessionManager(sessionFactory);
 
                 def.resolve(true);
             });
