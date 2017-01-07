@@ -39,7 +39,7 @@ interface IAppConfig
 
 export const CONFIG: IAppConfig = {
     rootPath: rootPath,
-    port: isDevEnv ? 7350 : 80,
+    port: isDevEnv ? 7950 : 80,
     cors: {
         origin: process.env.CLIENT_URL || true,
         credentials: true
@@ -51,7 +51,7 @@ export const CONFIG: IAppConfig = {
         secret: process.env.JWT_SECRET || "asdfghjkl",
         expiryInMinutes: 30,
         cookie: {
-            name: process.env.JWT_COOKIE || "symphone.presence",
+            name: process.env.JWT_COOKIE || "elegant.strokes.presence",
             options: {
                 httpOnly: true,
                 secure: !isDevEnv,
@@ -62,7 +62,7 @@ export const CONFIG: IAppConfig = {
     arango: {
         host: process.env.ARANGO_HOST || "localhost",
         port: process.env.ARANGO_PORT || 8529,
-        database: process.env.ARANGO_DBNAME || "SymphonE",
+        database: process.env.ARANGO_DBNAME || "Elegant.Strokes",
         username: process.env.ARANGO_USER || "admin",
         password: process.env.ARANGO_PASS || "admin123"
     }
