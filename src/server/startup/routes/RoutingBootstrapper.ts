@@ -20,6 +20,6 @@ export class RoutingBootstrapper
         });
 
         // Setup error handlers for all routes
-        ErrorsConfig.init(app);
+        // ErrorsConfig.init(app);
     }
 }
