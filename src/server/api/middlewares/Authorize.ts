@@ -4,7 +4,7 @@ import {RequestHandler} from "express";
 import {AuthWorker} from "../workers/AuthWorker";
 
 // Use this to make routes require authorization
-export function authorize(roles?: string[]): RequestHandler
+export function authorize(...roles: string[]): RequestHandler
 {
     return function (request, response, next)
     {

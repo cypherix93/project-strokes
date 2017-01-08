@@ -1,42 +1,22 @@
 import url = require("url");
-import {Request, Response} from "express-serve-static-core";
 import {JsonController, Get, Post, Res, Patch, Req, UseBefore, Param} from "routing-controllers";
-import {Page} from "../../../database/models/comic/Page";
 import {authorize} from "../../middlewares/Authorize";
-import {User} from "../../../database/models/auth/User";
-import {SessionManager} from "../../../database/SessionManager";
 import {ComposeWorker} from "../../workers/comic/ComposeWorker";
-
-const EntityTypes = {
-    Chapter: "chapter",
-    Episode: "episode",
-    Page: "page"
-};
+import {Roles} from "../../../database/data/admin/Roles";
 
 @JsonController("/compose")
-@UseBefore(authorize())
+@UseBefore(authorize(Roles.Editor))
 export class ComposeController
 {
-    @Post("/create/:entity")
-    public async create(@Req() request, @Res() response, @Param("entity") entity: string)
+    @Post("/createComic")
+    public async createComic(@Req() request, @Res() response)
     {
-        var data;
+        return await ComposeWorker.createComic(request.body);
+    }
 
-        if (entity === EntityTypes.Chapter)
-        {
-            data = ComposeWorker.createChapter(request.body);
-        }
-        else
-        {
-            return {
-                success: false,
-                message: `Cannot create object of type '${entity}'. Accepted values are ${Object.keys(EntityTypes).map(x => `'${EntityTypes[x]}'`)}.`
-            }
-        }
-
-        return {
-            success: true,
-            data: data
-        };
+    @Post("/createSeason")
+    public async createSeason(@Req() request, @Res() response)
+    {
+        return await ComposeWorker.createSeason(request.body);
     }
 }

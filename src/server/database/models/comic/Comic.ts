@@ -14,5 +14,5 @@ export class Comic extends Model
 
     @Field()
     @ElementType(Season)
-    public season:Season[];
+    public seasons:Season[];
 }

@@ -9,13 +9,11 @@ export class ComicController
     @Get("/getPage/:chapter/:episode")
     public async getPage(@Req() req: Request, @Res() res: Response, @Param("chapter") chapter: number, @Param("episode") episode: number)
     {
-        var comicPage = {
-            imageUrl: `https://unsplash.it/1200/1600/?random=${chapter}+${episode}`
-        } as Page;
+
 
         return {
             success: true,
-            data: comicPage
+            data: null
         };
     }
 
