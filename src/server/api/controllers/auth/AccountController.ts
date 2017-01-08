@@ -39,6 +39,7 @@ export class AccountController
 
         var user = await session.find(User, userId).asPromise();
 
+        // TODO: Figure out what fields to update
         // Update the user
         Object.assign(user, request.body);
 

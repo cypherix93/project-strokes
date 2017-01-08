@@ -8,5 +8,5 @@ export class Page extends Model
     public pageNumber:number;
 
     @Field()
-    public imageUrl:string;
+    public imageId:string;
 }
