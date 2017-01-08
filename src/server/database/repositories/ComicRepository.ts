@@ -1,15 +1,7 @@
-import {Repository} from "../base/Repository";
+import {Season} from "../models/comic/Season";
+import {SessionManager} from "../SessionManager";
 import {Comic} from "../models/comic/Comic";
 
-export class ComicRepository extends Repository<Comic>
+export class ComicRepository
 {
-    constructor()
-    {
-        super(Comic);
-    }
-
-    public func()
-    {
-
-    }
 }
