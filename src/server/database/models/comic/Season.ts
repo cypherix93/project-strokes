@@ -1,17 +1,17 @@
 import {Field, Entity, ElementType} from "hydrate-mongodb";
 import {Model} from "../../base/Model";
-import {Page} from "./Page";
+import {Arc} from "./Arc";
 
 @Entity()
-export class Chapter extends Model
+export class Season extends Model
 {
     @Field()
     public number: number;
 
     @Field()
-    public title:string;
+    public title: string;
 
     @Field()
-    @ElementType(Page)
-    public pages:Page[];
+    @ElementType(Arc)
+    public arcs: Arc[];
 }

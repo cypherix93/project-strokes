@@ -5,7 +5,7 @@ import {Model} from "../../base/Model";
 export class Page extends Model
 {
     @Field()
-    public pageNumber:number;
+    public number:number;
 
     @Field()
     public imageId:string;

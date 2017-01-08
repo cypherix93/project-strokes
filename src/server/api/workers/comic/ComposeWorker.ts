@@ -11,7 +11,7 @@ export class ComposeWorker
 
         var newChapter = new Chapter();
         newChapter.title = chapterDetails.title;
-        newChapter.episodes = [];
+        newChapter.pages = [];
 
         var session = SessionManager.createSession();
         session.save(newChapter);

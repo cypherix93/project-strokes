@@ -1,6 +1,7 @@
 import {Field, Entity, ElementType} from "hydrate-mongodb";
 import {Model} from "../../base/Model";
 import {Chapter} from "./Chapter";
+import {Season} from "./Season";
 
 @Entity()
 export class Comic extends Model
@@ -12,6 +13,6 @@ export class Comic extends Model
     public author:string;
 
     @Field()
-    @ElementType(Chapter)
-    public chapters:Chapter[];
+    @ElementType(Season)
+    public season:Season[];
 }
