@@ -5,6 +5,7 @@ import {CONFIG} from "../../config/Config";
 import {AuthHelper, IPassportUser} from "../../helpers/AuthHelper";
 import {SessionManager} from "../../database/SessionManager";
 import {User} from "../../database/models/auth/User";
+import {IPayload} from "../../interfaces/IPayload";
 
 // Middleware to hook up JWT
 export function jsonWebToken()
@@ -27,7 +28,7 @@ export function jsonWebToken()
             refreshTokenIfExpired(decoded)
                 .then(resolved =>
                 {
-                    var data = resolved.data as any;
+                    var data = resolved.data;
 
                     // If new token was provided, update cookie
                     if (data.token)
@@ -55,7 +56,7 @@ export function jsonWebToken()
     }
 }
 
-async function refreshTokenIfExpired(decoded: IPassportUser): Promise<{data: {decoded: IPassportUser}, token?: string}>
+async function refreshTokenIfExpired(decoded: IPassportUser): Promise<IPayload<{decoded: IPassportUser, token?: string}>>
 {
     var issuedAt = decoded.iat;
     var now = moment().unix().valueOf();
@@ -66,6 +67,7 @@ async function refreshTokenIfExpired(decoded: IPassportUser): Promise<{data: {de
     if ((now - issuedAt) <= expiryDuration)
     {
         return {
+            success: true,
             data: {decoded: decoded}
         };
     }
@@ -81,6 +83,7 @@ async function refreshTokenIfExpired(decoded: IPassportUser): Promise<{data: {de
     if (!dbUser)
     {
         return {
+            success: false,
             data: {decoded: null}
         };
     }
@@ -93,6 +96,7 @@ async function refreshTokenIfExpired(decoded: IPassportUser): Promise<{data: {de
 
     // Generate new token
     return {
+        success: true,
         data: {
             decoded: decoded,
             token: AuthHelper.generateJWToken(decoded)

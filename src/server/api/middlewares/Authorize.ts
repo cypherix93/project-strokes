@@ -14,7 +14,7 @@ export function authorize(...roles: string[]): RequestHandler
 
         // If roles weren't provided, it means we are only checking for authenticated users
         // Then accept
-        if (!roles)
+        if (!roles || !roles.length)
             return next();
 
         // Roles were requested, User has logged in, let's check roles
