@@ -2,12 +2,13 @@ import Q = require("q");
 import {SessionManager} from "../../../database/SessionManager";
 import {Comic, Chapter, Season} from "../../../database/models/Models";
 import {IPayload} from "../../../interfaces/IPayload";
+import {Arc} from "../../../database/models/comic/Arc";
 
 export class ComposeWorker
 {
     public static async createComic(reqBody): Promise<IPayload<Comic>>
     {
-        // Validate comic
+        // Validate request
         if (!reqBody.title)
         {
             return {
@@ -49,7 +50,7 @@ export class ComposeWorker
 
     public static async createSeason(reqBody): Promise<IPayload<Season>>
     {
-        // Validate season
+        // Validate request
         if (!reqBody.comicId)
         {
             return {
@@ -103,25 +104,60 @@ export class ComposeWorker
         };
     }
 
-    public static createArc(arcDetails): Chapter
+    public static async createArc(reqBody: Arc): Promise<IPayload<Arc>>
     {
-        // Validate chapter
-        if (!arcDetails.title)
+        // Validate request
+        if (!reqBody.seasonId || !reqBody.title)
             return null;
 
-        var newChapter = new Chapter();
-        newChapter.title = arcDetails.title;
-
         var session = SessionManager.createSession();
-        session.save(newChapter);
-        session.close();
 
-        return newChapter;
+        // Get the proper comic
+        var dbSeason = await session.find(Season, reqBody.seasonId).asPromise();
+
+        if (!dbSeason)
+        {
+            return {
+                success: false,
+                message: "Requested season does not exist. Cannot create arc."
+            };
+        }
+
+        // Get the number of seasons available for this comic to set the season number
+        var arcCount = await session.query(Arc).count({seasonId: reqBody.seasonId}).asPromise();
+
+        // Create a new season
+        var arc = new Arc();
+        arc.seasonId = reqBody.seasonId;
+        arc.title = reqBody.title;
+        arc.number = arcCount + 1;
+
+        // Save the season
+        session.save(arc);
+        session.flush();
+
+        // Get the created season from the database
+        var def = Q.defer<Arc>();
+
+        session.fetch(arc, (err, data) =>
+        {
+            if (err)
+                def.reject(err);
+
+            def.resolve(data);
+        });
+
+        var dbArc = await def.promise;
+
+        return {
+            success: true,
+            data: dbArc
+        };
     }
 
     public static createChapter(chapterDetails): Chapter
     {
-        // Validate chapter
+        // Validate request
         if (!chapterDetails.title)
             return null;
 
