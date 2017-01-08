@@ -6,12 +6,11 @@ import {Arc} from "./Arc";
 export class Season extends Model
 {
     @Field()
+    public comicId: string;
+
+    @Field()
     public number: number;
 
     @Field()
     public title: string;
-
-    @Field()
-    @ElementType(Arc)
-    public arcs: Arc[];
 }

@@ -11,8 +11,4 @@ export class Comic extends Model
 
     @Field()
     public author:string;
-
-    @Field()
-    @ElementType(Season)
-    public seasons:Season[];
 }

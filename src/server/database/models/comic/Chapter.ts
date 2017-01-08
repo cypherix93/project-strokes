@@ -6,12 +6,11 @@ import {Page} from "./Page";
 export class Chapter extends Model
 {
     @Field()
+    public arcId: string;
+
+    @Field()
     public number: number;
 
     @Field()
     public title:string;
-
-    @Field()
-    @ElementType(Page)
-    public pages:Page[];
 }

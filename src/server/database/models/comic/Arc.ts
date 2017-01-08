@@ -6,12 +6,11 @@ import {Chapter} from "./Chapter";
 export class Arc extends Model
 {
     @Field()
+    public seasonId: string;
+
+    @Field()
     public number: number;
 
     @Field()
     public title: string;
-
-    @Field()
-    @ElementType(Chapter)
-    public chapters: Chapter[];
 }

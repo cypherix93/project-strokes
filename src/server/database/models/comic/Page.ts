@@ -5,6 +5,9 @@ import {Model} from "../../base/Model";
 export class Page extends Model
 {
     @Field()
+    public chapterId: string;
+
+    @Field()
     public number:number;
 
     @Field()

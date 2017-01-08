@@ -1,15 +1,14 @@
+import Q = require("q");
 import {SessionManager} from "../../../database/SessionManager";
 import {Comic, Chapter, Season} from "../../../database/models/Models";
 import {IPayload} from "../../../interfaces/IPayload";
-import {GetRepository} from "../../../database/RepositoryFactory";
-import {ComicRepository} from "../../../database/repositories/ComicRepository";
 
 export class ComposeWorker
 {
-    public static async createComic(comicDetails): Promise<IPayload<Comic>>
+    public static async createComic(reqBody): Promise<IPayload<Comic>>
     {
         // Validate comic
-        if (!comicDetails.title)
+        if (!reqBody.title)
         {
             return {
                 success: false,
@@ -17,24 +16,41 @@ export class ComposeWorker
             };
         }
 
+        // Create the new comic
         var comic = new Comic();
-        comic.title = comicDetails.title;
-        comic.seasons = [];
+        comic.title = reqBody.title;
 
-        var comicRepo = new ComicRepository();
-        comicRepo.save(comic);
-        comic = await comicRepo.findOne({title: comic.title});
+        var session = SessionManager.createSession();
+
+        // Save the comic
+        session.save(comic);
+        session.flush();
+
+        // Get the created comic from the database
+        var def = Q.defer<Comic>();
+
+        session.fetch(comic, (err, data) =>
+        {
+            if (err)
+                def.reject(err);
+
+            def.resolve(data);
+        });
+
+        var dbComic = await def.promise;
+
+        session.close();
 
         return {
             success: true,
-            data: comic
+            data: dbComic
         };
     }
 
-    public static async createSeason(seasonDetails): Promise<IPayload<Season>>
+    public static async createSeason(reqBody): Promise<IPayload<Season>>
     {
         // Validate season
-        if (!seasonDetails.comicId)
+        if (!reqBody.comicId)
         {
             return {
                 success: false,
@@ -42,20 +58,48 @@ export class ComposeWorker
             };
         }
 
-        var season = new Season();
-        season.title = seasonDetails.title;
-        season.arcs = [];
-
         var session = SessionManager.createSession();
 
-        session.save(season);
-        season = await session.query(Season).findOne({title: season.title}).asPromise();
+        // Get the proper comic
+        var dbComic = await session.find(Comic, reqBody.comicId).asPromise();
 
-        session.close();
+        if (!dbComic)
+        {
+            return {
+                success: false,
+                message: "Requested comic does not exist. Cannot create season."
+            };
+        }
+
+        // Get the number of seasons available for this comic to set the season number
+        var seasonsCount = await session.query(Season).count({comicId: reqBody.comicId}).asPromise();
+
+        // Create a new season
+        var season = new Season();
+        season.comicId = reqBody.comicId;
+        season.title = reqBody.title;
+        season.number = seasonsCount + 1;
+
+        // Save the season
+        session.save(season);
+        session.flush();
+
+        // Get the created season from the database
+        var def = Q.defer<Season>();
+
+        session.fetch(season, (err, data) =>
+        {
+            if (err)
+                def.reject(err);
+
+            def.resolve(data);
+        });
+
+        var dbSeason = await def.promise;
 
         return {
             success: true,
-            data: season
+            data: dbSeason
         };
     }
 
@@ -67,7 +111,6 @@ export class ComposeWorker
 
         var newChapter = new Chapter();
         newChapter.title = arcDetails.title;
-        newChapter.pages = [];
 
         var session = SessionManager.createSession();
         session.save(newChapter);
@@ -84,7 +127,6 @@ export class ComposeWorker
 
         var newChapter = new Chapter();
         newChapter.title = chapterDetails.title;
-        newChapter.pages = [];
 
         var session = SessionManager.createSession();
         session.save(newChapter);
