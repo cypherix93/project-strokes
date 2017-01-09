@@ -4,16 +4,10 @@ import {authorize} from "../../middlewares/Authorize";
 import {ComposeWorker} from "../../workers/comic/ComposeWorker";
 import {Roles} from "../../../database/data/admin/Roles";
 
-@JsonController("/compose")
+@JsonController("/season")
 @UseBefore(authorize(Roles.Editor))
-export class ComposeController
+export class SeasonController
 {
-    @Post("/createComic")
-    public async createComic(@Req() request, @Res() response)
-    {
-        return await ComposeWorker.createComic(request.body);
-    }
-
     @Post("/createSeason")
     public async createSeason(@Req() request, @Res() response)
     {

@@ -1,4 +1,3 @@
-import Q = require("q");
 import {SessionManager} from "../../../database/SessionManager";
 import {Comic, Chapter, Season} from "../../../database/models/Models";
 import {IPayload} from "../../../interfaces/IPayload";
@@ -6,48 +5,6 @@ import {Arc} from "../../../database/models/comic/Arc";
 
 export class ComposeWorker
 {
-    public static async createComic(reqBody): Promise<IPayload<Comic>>
-    {
-        // Validate request
-        if (!reqBody.title)
-        {
-            return {
-                success: false,
-                message: "Information provided about the comic is invalid."
-            };
-        }
-
-        // Create the new comic
-        var comic = new Comic();
-        comic.title = reqBody.title;
-
-        var session = SessionManager.createSession();
-
-        // Save the comic
-        session.save(comic);
-        session.flush();
-
-        // Get the created comic from the database
-        var def = Q.defer<Comic>();
-
-        session.fetch(comic, (err, data) =>
-        {
-            if (err)
-                def.reject(err);
-
-            def.resolve(data);
-        });
-
-        var dbComic = await def.promise;
-
-        session.close();
-
-        return {
-            success: true,
-            data: dbComic
-        };
-    }
-
     public static async createSeason(reqBody): Promise<IPayload<Season>>
     {
         // Validate request
@@ -86,21 +43,20 @@ export class ComposeWorker
         session.flush();
 
         // Get the created season from the database
-        var def = Q.defer<Season>();
-
-        session.fetch(season, (err, data) =>
+        season = await new Promise<Season>((resolve, reject) =>
         {
-            if (err)
-                def.reject(err);
+            session.fetch(season, (err, data) =>
+            {
+                if (err)
+                    reject(err);
 
-            def.resolve(data);
+                resolve(data);
+            });
         });
-
-        var dbSeason = await def.promise;
 
         return {
             success: true,
-            data: dbSeason
+            data: season
         };
     }
 
@@ -136,22 +92,21 @@ export class ComposeWorker
         session.save(arc);
         session.flush();
 
-        // Get the created season from the database
-        var def = Q.defer<Arc>();
-
-        session.fetch(arc, (err, data) =>
+        // Get the created arc from the database
+        arc = await new Promise<Arc>((resolve, reject) =>
         {
-            if (err)
-                def.reject(err);
+            session.fetch(arc, (err, data) =>
+            {
+                if (err)
+                    reject(err);
 
-            def.resolve(data);
+                resolve(data);
+            });
         });
-
-        var dbArc = await def.promise;
 
         return {
             success: true,
-            data: dbArc
+            data: arc
         };
     }
 
