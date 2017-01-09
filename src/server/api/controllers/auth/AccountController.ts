@@ -13,7 +13,7 @@ export class AccountController
         // Get the requested user from the db
         var session = SessionManager.createSession();
 
-        var user = await session.find(User, userId).asPromise();
+        var user = await session.query(User).findOne({_id: userId}).asPromise();
 
         session.close();
 
@@ -37,7 +37,7 @@ export class AccountController
         // User checked out, let's update the user's data
         var session = SessionManager.createSession();
 
-        var user = await session.find(User, userId).asPromise();
+        var user = await session.query(User).findOne({_id: userId}).asPromise();
 
         // TODO: Figure out what fields to update
         // Update the user

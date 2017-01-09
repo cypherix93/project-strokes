@@ -40,7 +40,7 @@
     "passport-local": "^1.0.0",
     "q": "^1.4.1",
     "routing-controllers": "^0.6.6",
-    "shortid": "^2.2.4",
+    "shortid": "^2.2.6",
     "socket.io": "^1.4.5",
     "validator": "^6.0.0",
     "winston": "^2.2.0"
@@ -58,6 +58,7 @@
     "@types/jsonwebtoken": "^7.1.32",
     "@types/lodash": "^4.14.36",
     "@types/node": "^6.0.42",
+    "@types/node-uuid": "0.0.28",
     "@types/passport": "^0.2.31",
     "@types/passport-local": "^1.0.29",
     "@types/q": "0.0.31",

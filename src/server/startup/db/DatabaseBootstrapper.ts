@@ -1,6 +1,7 @@
 import Q = require("q");
+import shortid = require("shortid");
 import {MongoClient} from "mongodb";
-import {Configuration, AnnotationMappingProvider} from "hydrate-mongodb";
+import {Configuration, AnnotationMappingProvider, IdentityGenerator} from "hydrate-mongodb";
 
 import {LOGGER} from "../../helpers/Logger";
 import {CONFIG} from "../../config/Config";
@@ -16,6 +17,7 @@ export class DatabaseBootstrapper
 
         // Initiate the configuration for Hydrate to understand our models
         var config = new Configuration();
+        config.identityGenerator = new ShortIdGenerator();
         config.addMapping(new AnnotationMappingProvider(models));
 
         var def = Q.defer();
@@ -42,5 +44,25 @@ export class DatabaseBootstrapper
         });
 
         return await def.promise;
+    }
+}
+
+class ShortIdGenerator implements IdentityGenerator
+{
+    generate(): string
+    {
+        return shortid.generate();
+    }
+    validate(value: string): boolean
+    {
+        return !!value;
+    }
+    fromString(text: string): any
+    {
+        return text;
+    }
+    areEqual(first: any, second: any): boolean
+    {
+        return first === second;
     }
 }

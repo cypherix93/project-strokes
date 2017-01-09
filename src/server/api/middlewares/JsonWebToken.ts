@@ -75,7 +75,7 @@ async function refreshTokenIfExpired(decoded: IPassportUser): Promise<IPayload<{
     var session = SessionManager.createSession();
 
     // Otherwise, let's recheck the database and make sure User claims the correct stuff
-    var dbUser = await session.find(User, decoded.id).asPromise();
+    var dbUser = await session.query(User).findOne({_id: decoded.id}).asPromise();
 
     session.close();
 

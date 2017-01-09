@@ -62,7 +62,7 @@ export class ComposeWorker
         var session = SessionManager.createSession();
 
         // Get the proper comic
-        var dbComic = await session.find(Comic, reqBody.comicId).asPromise();
+        var dbComic = await session.query(Comic).findOne({_id: reqBody.comicId}).asPromise();
 
         if (!dbComic)
         {
@@ -113,7 +113,7 @@ export class ComposeWorker
         var session = SessionManager.createSession();
 
         // Get the proper comic
-        var dbSeason = await session.find(Season, reqBody.seasonId).asPromise();
+        var dbSeason = await session.query(Season).findOne({_id: reqBody.seasonId}).asPromise();
 
         if (!dbSeason)
         {
