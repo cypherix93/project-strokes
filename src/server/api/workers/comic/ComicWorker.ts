@@ -3,7 +3,9 @@ import {IPayload} from "../../../interfaces/IPayload";
 import {IRestWorker} from "../../../interfaces/IRestWorker";
 import {SessionManager} from "../../../database/SessionManager";
 
-export class ComicWorker implements IRestWorker<Comic>
+export const ComicWorker = new Worker();
+
+class Worker implements IRestWorker<Comic>
 {
     public async create(body): Promise<IPayload<Comic>>
     {

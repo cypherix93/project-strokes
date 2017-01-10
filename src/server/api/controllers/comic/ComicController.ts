@@ -15,41 +15,24 @@ export class ComicController implements IRestController
     @Get("/:id")
     public async read(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
-        return await new ComicWorker().read(id);
+        return await ComicWorker.read(id);
     }
 
     @Put("/")
     public async create(@Req() req: Request, @Res() res: Response)
     {
-        return await new ComicWorker().create(req.body);
+        return await ComicWorker.create(req.body);
     }
 
     @Patch("/:id")
     public async update(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
-
+        return await ComicWorker.update(id, req.body);
     }
 
     @Delete("/:id")
     public async remove(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
-    }
-
-
-    @Get("/getPage/:chapter/:episode")
-    public async getPage(@Req() req: Request, @Res() res: Response, @Param("chapter") chapter: number, @Param("episode") episode: number)
-    {
-
-
-        return {
-            success: true,
-            data: null
-        };
-    }
-
-    @Post("/getNextPage")
-    public async getNextPage(@Req() req: Request, @Res() res: Response)
-    {
-
+        return await ComicWorker.remove(id);
     }
 }
