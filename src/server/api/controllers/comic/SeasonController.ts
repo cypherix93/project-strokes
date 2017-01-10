@@ -1,11 +1,8 @@
-import url = require("url");
-import HttpStatus = require("http-status-codes");
 import {Request, Response} from "express-serve-static-core";
 import {JsonController, Get, Post, Put, Patch, Delete, Req, Res, Param, UseBefore} from "routing-controllers";
-import {authorize} from "../../middlewares/Authorize";
-import {ComposeWorker} from "../../workers/comic/ComposeWorker";
-import {Roles} from "../../../database/data/admin/Roles";
 import {IRestController} from "../../../interfaces/IRestController";
+import {authorize} from "../../middlewares/Authorize";
+import {Roles} from "../../../database/data/admin/Roles";
 import {SeasonWorker} from "../../workers/comic/SeasonWorker";
 
 @JsonController("/season")

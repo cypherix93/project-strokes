@@ -1,12 +1,9 @@
-import url = require("url");
-import HttpStatus = require("http-status-codes");
 import {Request, Response} from "express-serve-static-core";
 import {JsonController, Get, Post, Put, Patch, Delete, Req, Res, Param, UseBefore} from "routing-controllers";
 import {IRestController} from "../../../interfaces/IRestController";
-import {Roles} from "../../../database/data/admin/Roles";
 import {authorize} from "../../middlewares/Authorize";
+import {Roles} from "../../../database/data/admin/Roles";
 import {ComicWorker} from "../../workers/comic/ComicWorker";
-
 
 @JsonController("/comic")
 @UseBefore(authorize(Roles.Editor))
