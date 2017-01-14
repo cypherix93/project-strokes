@@ -13,7 +13,7 @@ class Worker implements IRestWorker<Arc>
         {
             return {
                 success: false,
-                message: "Comic information given is invalid. Cannot create season."
+                message: "Season information given is invalid. Cannot create Arc."
             };
         }
 

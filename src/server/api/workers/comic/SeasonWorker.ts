@@ -13,7 +13,7 @@ class Worker implements IRestWorker<Season>
         {
             return {
                 success: false,
-                message: "Comic information given is invalid. Cannot create season."
+                message: "Comic information given is invalid. Cannot create Season."
             };
         }
 
@@ -26,7 +26,7 @@ class Worker implements IRestWorker<Season>
         {
             return {
                 success: false,
-                message: "Requested comic does not exist. Cannot create season."
+                message: "Requested Comic does not exist. Cannot create Season."
             };
         }
 
