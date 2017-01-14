@@ -1,8 +1,6 @@
-import {ObjectID} from "mongodb";
-
 export class Model
 {
-    public _id:ObjectID;
+    public _id: string;
 
-    public id:string;
+    public id: string;
 }
