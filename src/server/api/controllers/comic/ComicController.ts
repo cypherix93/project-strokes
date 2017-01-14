@@ -6,7 +6,6 @@ import {Roles} from "../../../database/data/admin/Roles";
 import {ComicWorker} from "../../workers/comic/ComicWorker";
 
 @JsonController("/comic")
-@UseBefore(authorize(Roles.Editor))
 export class ComicController implements IRestController
 {
     @Get("/:id")
@@ -16,18 +15,21 @@ export class ComicController implements IRestController
     }
 
     @Put("/")
+    @UseBefore(authorize(Roles.Editor))
     public async create(@Req() req: Request, @Res() res: Response)
     {
         return await ComicWorker.create(req.body);
     }
 
     @Patch("/:id")
+    @UseBefore(authorize(Roles.Editor))
     public async update(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
         return await ComicWorker.update(id, req.body);
     }
 
     @Delete("/:id")
+    @UseBefore(authorize(Roles.Editor))
     public async remove(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
         return await ComicWorker.remove(id);

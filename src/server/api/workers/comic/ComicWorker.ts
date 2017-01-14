@@ -3,8 +3,6 @@ import {IPayload} from "../../../interfaces/IPayload";
 import {IRestWorker} from "../../../interfaces/IRestWorker";
 import {SessionManager} from "../../../database/SessionManager";
 
-export const ComicWorker = new Worker();
-
 class Worker implements IRestWorker<Comic>
 {
     public async create(body): Promise<IPayload<Comic>>
@@ -25,19 +23,10 @@ class Worker implements IRestWorker<Comic>
         var session = SessionManager.createSession();
 
         // Save the comic
-        session.save(comic);
-        session.flush();
-
-        // Get the created comic from the database
-        comic = await new Promise<Comic>((resolve, reject) =>
+        await new Promise((resolve, reject) =>
         {
-            session.fetch(comic, (err, data) =>
-            {
-                if (err)
-                    reject(err);
-
-                resolve(data);
-            });
+            session.save(comic, () => resolve());
+            session.flush();
         });
 
         session.close();
@@ -79,3 +68,5 @@ class Worker implements IRestWorker<Comic>
         return undefined;
     }
 }
+
+export const ComicWorker = new Worker();
