@@ -7,9 +7,7 @@ angular.module("AppModule", [
     "ngMessages",
     "ui.router",
     "ui.bootstrap",
-    "toastr",
-    "duScroll",
-    "duParallax"
+    "toastr"
 ]);
 
 // Global Angular App Declaration

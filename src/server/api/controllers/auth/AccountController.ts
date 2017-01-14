@@ -1,3 +1,5 @@
+import * as HttpStatus from "http-status-codes";
+
 import {JsonController, Get, Res, Patch, Req, UseBefore, Param} from "routing-controllers";
 import {authorize} from "../../middlewares/Authorize";
 import {SessionManager} from "../../../database/SessionManager";
@@ -19,7 +21,7 @@ export class AccountController
 
         // Check if user exists
         if (!user)
-            return response.sendStatus(404);
+            return response.sendStatus(HttpStatus.NOT_FOUND);
 
         return {
             success: true,
@@ -32,7 +34,7 @@ export class AccountController
     {
         // If the user requested is not the current user, send 401
         if (userId !== request.user.id)
-            return response.sendStatus(401);
+            return response.sendStatus(HttpStatus.UNAUTHORIZED);
 
         // User checked out, let's update the user's data
         var session = SessionManager.createSession();

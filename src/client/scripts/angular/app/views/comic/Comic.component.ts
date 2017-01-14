@@ -1,10 +1,7 @@
-import * as angular from "angular";
 import {AppModule} from "../../../App.module";
 import {registerRoute} from "../../../core/helpers/RoutingHelper";
-import fullscreen = require("fullscreen");
-import IController = angular.IController;
 
-class ComicController implements IController
+class ComicController implements angular.IController
 {
 }
 

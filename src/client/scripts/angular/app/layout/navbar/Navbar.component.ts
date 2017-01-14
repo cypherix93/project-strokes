@@ -1,15 +1,12 @@
 import {AppModule} from "../../../App.module";
 import {APP_META} from "../../../core/helpers/MetaHelper";
 import {AuthService} from "../../../core/services/auth/Auth.service";
-import IController = angular.IController;
 
-class NavbarController implements IController
+class NavbarController implements angular.IController
 {
     public appMeta = APP_META;
 
-    public parallaxEffect = this.parallaxHelper.createAnimator(-0.8);
-
-    constructor(private $state, public AuthService: AuthService, private toastr, private parallaxHelper)
+    constructor(private $state, public AuthService: AuthService, private toastr)
     {
     }
 

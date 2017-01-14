@@ -1,4 +1,5 @@
 import * as _ from "lodash";
+import * as HttpStatus from "http-status-codes";
 
 import {RequestHandler} from "express";
 import {AuthWorker} from "../workers/AuthWorker";
@@ -10,7 +11,7 @@ export function authorize(...roles: string[]): RequestHandler
     {
         // User hasn't logged in, so send 401
         if (!request.user)
-            return response.sendStatus(401);
+            return response.sendStatus(HttpStatus.UNAUTHORIZED);
 
         // If roles weren't provided, it means we are only checking for authenticated users
         // Then accept
@@ -22,7 +23,7 @@ export function authorize(...roles: string[]): RequestHandler
 
         // None of user's roles match the roles requested, send 401
         if (_.intersection(roles, userRoles).length === 0)
-            return response.sendStatus(401);
+            return response.sendStatus(HttpStatus.FORBIDDEN);
 
         // Otherwise accept
         return next();

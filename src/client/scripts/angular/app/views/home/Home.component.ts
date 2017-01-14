@@ -1,8 +1,7 @@
 import {AppModule} from "../../../App.module";
 import {registerRoute} from "../../../core/helpers/RoutingHelper";
-import IController = angular.IController;
 
-class HomeController implements IController
+class HomeController implements angular.IController
 {
 
 }
