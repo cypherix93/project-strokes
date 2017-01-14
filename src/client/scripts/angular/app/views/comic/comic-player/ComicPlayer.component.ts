@@ -6,7 +6,7 @@ class ComicPlayerController implements IController
 {
 }
 
-AppModule.component("comicComponent", {
+AppModule.component("comicPlayerComponent", {
     controller: ComicPlayerController,
     template: require("./ComicPlayer.template.html")
 });
