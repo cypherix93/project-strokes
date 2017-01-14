@@ -1,7 +1,6 @@
 import {IPayload} from "../../../interfaces/IPayload";
 import {IRestWorker} from "../../../interfaces/IRestWorker";
 import {SessionManager} from "../../../database/SessionManager";
-import {Comic} from "../../../database/models/comic/Comic";
 import {Season} from "../../../database/models/comic/Season";
 import {Arc} from "../../../database/models/comic/Arc";
 
@@ -20,19 +19,19 @@ class Worker implements IRestWorker<Arc>
 
         var session = SessionManager.createSession();
 
-        // Get the proper comic
-        var comic = await session.query(Comic).findOne({_id: body.seasonId}).asPromise();
+        // Get the proper parent
+        var season = await session.query(Season).findOne({_id: body.seasonId}).asPromise();
 
-        if (!comic)
+        if (!season)
         {
             return {
                 success: false,
-                message: "Requested comic does not exist. Cannot create season."
+                message: "Requested Season does not exist. Cannot create Arc."
             };
         }
 
         // Get the number of seasons available for this comic to set the season number
-        var count = await session.query(Arc).count({comicId: body.seasonId}).asPromise();
+        var count = await session.query(Arc).count({seasonId: body.seasonId}).asPromise();
 
         // Create a new season
         var arc = new Arc();
