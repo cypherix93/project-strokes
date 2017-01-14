@@ -13,7 +13,7 @@ class Worker implements IRestWorker<Chapter>
         {
             return {
                 success: false,
-                message: "Chapter information given is invalid. Cannot create season."
+                message: "Arc information given is invalid. Cannot create Chapter."
             };
         }
 
