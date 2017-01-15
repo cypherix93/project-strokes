@@ -10,8 +10,11 @@ AppModule.component("comicComponent", {
     template: require("./Comic.template.html")
 });
 
-registerRoute("comicState", {
+registerRoute("comic", {
     url: "/comic",
-    component: "comicComponent"
+    template: "<comic-component></comic-component>",
+    data: {
+        title: "Comic"
+    }
 });
 

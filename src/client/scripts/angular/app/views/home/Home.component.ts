@@ -11,8 +11,11 @@ AppModule.component("homeComponent", {
     template: require("./Home.template.html")
 });
 
-registerRoute("homeState", {
+registerRoute("home", {
     url: "/",
-    component: "homeComponent"
+    template: "<home-component></home-component>",
+    data: {
+        title: "Home"
+    }
 });
 

@@ -1,6 +1,6 @@
 import {AppModule} from "../../App.module";
 import {AuthService} from "../services/auth/Auth.service";
-import {IStateService} from "angular-ui-router";
+import {IStateService, IState} from "angular-ui-router";
 
 // Configure Angular App Routes
 AppModule.config(function ($locationProvider, $urlRouterProvider)
@@ -15,9 +15,19 @@ AppModule.config(function ($locationProvider, $urlRouterProvider)
 // Configure router authentication
 AppModule.run(function ($rootScope, $state: IStateService, AuthService: AuthService)
 {
-    $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams)
+    $rootScope.$on("$stateChangeSuccess", function (event, toState: IState)
     {
-        if (toState.authenticate && !AuthService.isAuthenticated())
+        console.log(toState);
+
+        if (toState.data && toState.data.title)
+        {
+            $rootScope.pageTitle = toState.data.title;
+        }
+    });
+
+    $rootScope.$on("$stateChangeStart", function (event, toState: IState)
+    {
+        if (toState.data && toState.data.authenticate && !AuthService.isAuthenticated())
         {
             $state.transitionTo("login", {redirectToState: toState});
             event.preventDefault();

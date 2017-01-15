@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" ui-sref="homeState">
+                <a class="navbar-brand" ui-sref="home">
                 <span class="h3">
                     <span class="fa fa-circle-o-notch"></span>
                     {{$ctrl.appMeta.name}}
@@ -23,12 +23,12 @@
             <div class="collapse navbar-collapse" id="top-navbar">
                 <ul class="nav navbar-nav">
                     <li ui-sref-active="active">
-                        <a ui-sref="homeState">
+                        <a ui-sref="home">
                             <span class="fa fa-lg fa-home"></span>
                         </a>
                     </li>
                     <li ui-sref-active="active">
-                        <a ui-sref="comicState">
+                        <a ui-sref="comic">
                             <span class="fa fa-lg fa-book"></span>
                             Comic
                         </a>
@@ -41,8 +41,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-hide="$ctrl.AuthService.currentUser">
-                        <a ui-sref="loginState">
+                    <li ui-sref-active="active" ng-hide="$ctrl.AuthService.isAuthenticated()">
+                        <a ui-sref="login">
                             <span class="fa fa-lg fa-sign-in"></span>
                             Log In
                         </a>
