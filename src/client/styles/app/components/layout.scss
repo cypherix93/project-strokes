@@ -2,8 +2,6 @@ html, body
 {
     height: 100%;
     @include text-antialias();
-
-    background: darken($brand-primary, 30%);
 }
 [hidden],
 template

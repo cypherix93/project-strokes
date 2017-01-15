@@ -7,7 +7,7 @@ export class AuthService
     public currentUser: any;
     public authToken: string;
 
-    constructor(private ApiService: ApiService)
+    constructor(private $window: angular.IWindowService, private ApiService: ApiService)
     {
         this.bootstrapSessionUser();
     }
@@ -57,6 +57,8 @@ export class AuthService
         {
             this.currentUser = undefined;
         }
+
+        this.$window.location.reload();
 
         return payload;
     }
