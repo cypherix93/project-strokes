@@ -126,22 +126,13 @@ button.toast-close-button
     .toast
     {
         background: transparentize($gray-base, 0.2);
-        font-weight: bold;
+        font-size: 18px;
 
         position: relative;
         overflow: hidden;
         margin: 0 0 8px;
         padding: 15px 30px;
         border-radius: 4px;
-        opacity: 0;
-
-        transition: opacity ease 0.25s, margin ease 0.25s;
-
-        &:hover
-        {
-            opacity: 1;
-            cursor: pointer;
-        }
     }
     .toast-success
     {
@@ -176,6 +167,32 @@ button.toast-close-button
         background-color: #000000;
         opacity: 0.4;
     }
+}
+/*Animations*/
+div[toast]
+{
+    opacity: 1;
+    transition: opacity ease 0.25s, transform ease 0.25s;
+}
+div[toast].ng-enter
+{
+    transform: translate(0, 100%);
+    opacity: 0;
+}
+div[toast].ng-enter.ng-enter-active
+{
+    transform: translate(0, 0);
+    opacity: 1;
+}
+div[toast].ng-leave
+{
+    transform: translate(0, 0);
+    opacity: 1;
+}
+div[toast].ng-leave.ng-leave-active
+{
+    transform: translate(0, 100%);
+    opacity: 0;
 }
 /*Responsive Design*/
 @media all and (max-width: 240px) {
