@@ -54,4 +54,4 @@ export class ComicDataService
     }
 }
 
-AppModule.service("AuthService", ComicDataService);
+AppModule.service("ComicDataService", ComicDataService);

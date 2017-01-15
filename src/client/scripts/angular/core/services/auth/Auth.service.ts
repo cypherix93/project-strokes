@@ -9,6 +9,7 @@ export class AuthService
 
     constructor(private ApiService: ApiService)
     {
+        this.bootstrapSessionUser();
     }
 
     public isAuthenticated(): boolean
