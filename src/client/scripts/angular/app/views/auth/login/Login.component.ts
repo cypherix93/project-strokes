@@ -1,14 +1,14 @@
 import {AppModule} from "../../../../App.module";
 import {registerRoute} from "../../../../core/helpers/RoutingHelper";
 import {AuthService} from "../../../../core/services/auth/Auth.service";
-import {IStateService} from "@types/angular-ui-router";
+import {IStateService, IStateParamsService} from "@types/angular-ui-router";
 
 class LoginController implements angular.IController
 {
     public email: string;
     public password: string;
 
-    constructor(private $state: IStateService, private AuthService: AuthService, private toastr)
+    constructor(private $state: IStateService, private $stateParams, private AuthService: AuthService, private toastr)
     {
     }
 
@@ -28,8 +28,15 @@ class LoginController implements angular.IController
             return;
         }
 
-        // Redirect to home page
-        this.$state.go("home");
+        // Redirect to the proper page
+        if (this.$stateParams.redirectTo)
+        {
+            this.$state.go(this.$stateParams.redirectTo);
+        }
+        else
+        {
+            this.$state.go("home");
+        }
 
         // Display toast message
         this.toastr.success("Welcome back " + this.AuthService.currentUser.email);
@@ -46,5 +53,8 @@ registerRoute("login", {
     template: "<login-component></login-component>",
     data: {
         title: "Log In"
+    },
+    params: {
+        redirectTo: null
     }
 });

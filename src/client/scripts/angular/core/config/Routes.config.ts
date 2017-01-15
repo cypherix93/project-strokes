@@ -17,8 +17,6 @@ AppModule.run(function ($rootScope, $state: IStateService, AuthService: AuthServ
 {
     $rootScope.$on("$stateChangeSuccess", function (event, toState: IState)
     {
-        console.log(toState);
-
         if (toState.data && toState.data.title)
         {
             $rootScope.pageTitle = toState.data.title;
@@ -29,7 +27,7 @@ AppModule.run(function ($rootScope, $state: IStateService, AuthService: AuthServ
     {
         if (toState.data && toState.data.authenticate && !AuthService.isAuthenticated())
         {
-            $state.transitionTo("login", {redirectToState: toState});
+            $state.go("login", {redirectTo: toState.name});
             event.preventDefault();
         }
     });
