@@ -8,11 +8,11 @@ $gray:                  lighten($gray-base, 50.0%);
 $gray-light:            lighten($gray-base, 75%);
 $gray-lighter:          lighten($gray-base, 90.0%);
 
-$brand-primary:         #3f618d;
-$brand-success:         #3fad46;
-$brand-info:            #9c5bde;
-$brand-warning:         #f0ad4e;
-$brand-danger:          #d9534f;
+$brand-primary:         hsl(214, 38%, 45%);
+$brand-success:         hsl(124, 47%, 46%);
+$brand-info:            hsl(270, 66%, 61%);
+$brand-warning:         hsl(35, 84%, 62%);
+$brand-danger:          hsl(2, 64%, 58%);
 
 $state-success-text:    darken($brand-success, 20%);
 $state-success-bg:      lighten($brand-success, 50%);
@@ -42,13 +42,19 @@ $headings-font-family:    $font-family-sans-serif;
 
 $font-size-base: 16px;
 
+$fa-font-path: "~font-awesome/fonts/";
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+
+
+/* Global */
+$body-bg: desaturate(darken($brand-primary, 38%), 10%);
+
+
+/* Text */
 $text-color: white;
 $link-color: lighten(saturate($brand-primary, 30%), 30%);
 
 $text-shadow: transparentize($gray-base, 0.9) 0 0 1px;
-
-$fa-font-path: "~font-awesome/fonts/";
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 
 
 /* Border Stuff */
@@ -64,3 +70,8 @@ $navbar-inverse-brand-hover-color: white;
 $navbar-inverse-link-color: $gray-lighter;
 $navbar-inverse-link-hover-color: white;
 $navbar-inverse-link-active-color: white;
+
+
+/* Forms */
+$input-bg: lighten($body-bg, 18%);
+$input-border: $gray-base;
