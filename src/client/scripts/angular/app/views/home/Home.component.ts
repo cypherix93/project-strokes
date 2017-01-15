@@ -13,6 +13,6 @@ AppModule.component("homeComponent", {
 
 registerRoute("homeState", {
     url: "/",
-    template: "<home-component></home-component>"
+    component: "homeComponent"
 });
 

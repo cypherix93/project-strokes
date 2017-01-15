@@ -12,6 +12,6 @@ AppModule.component("comicComponent", {
 
 registerRoute("comicState", {
     url: "/comic",
-    template: "<comic-component></comic-component>"
+    component: "comicComponent"
 });
 
