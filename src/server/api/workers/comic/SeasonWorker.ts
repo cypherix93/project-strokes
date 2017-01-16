@@ -84,6 +84,25 @@ class Worker implements IRestWorker<Season>
     {
         return undefined;
     }
+
+    public async getSeasonsForComic(comicId: string, page = 1, show = 10): Promise<IPayload<Season[]>>
+    {
+        var session = SessionManager.createSession();
+
+        var seasons = await session.query(Season)
+            .findAll({comicId})
+            .sort("title", 1)
+            .skip(show * (page - 1))
+            .limit(show)
+            .asPromise();
+
+        session.close();
+
+        return {
+            success: true,
+            data: seasons
+        }
+    }
 }
 
 export const SeasonWorker = new Worker();

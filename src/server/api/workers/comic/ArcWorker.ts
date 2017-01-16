@@ -57,7 +57,9 @@ class Worker implements IRestWorker<Arc>
     public async read(id: string): Promise<IPayload<Arc>>
     {
         var session = SessionManager.createSession();
-        var arc = await session.query(Arc).findOne({_id: id}).asPromise();
+        var arc = await session.query(Arc)
+            .findOne({_id: id})
+            .asPromise();
 
         if (!arc)
         {
@@ -83,6 +85,25 @@ class Worker implements IRestWorker<Arc>
     public async remove(id: string): Promise<IPayload<Arc>>
     {
         return undefined;
+    }
+
+    public async getArcsForSeason(seasonId: string, page = 1, show = 10): Promise<IPayload<Arc[]>>
+    {
+        var session = SessionManager.createSession();
+
+        var arcs = await session.query(Arc)
+            .findAll({seasonId})
+            .sort("number", 1)
+            .skip(show * (page - 1))
+            .limit(show)
+            .asPromise();
+
+        session.close();
+
+        return {
+            success: true,
+            data: arcs
+        }
     }
 }
 

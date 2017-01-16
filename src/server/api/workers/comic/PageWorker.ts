@@ -83,6 +83,25 @@ class Worker implements IRestWorker<Page>
     {
         return undefined;
     }
+
+    public async getPagesForChapter(chapterId: string, page = 1, show = 10): Promise<IPayload<Page[]>>
+    {
+        var session = SessionManager.createSession();
+
+        var comics = await session.query(Page)
+            .findAll({chapterId})
+            .sort("title", 1)
+            .skip(show * (page - 1))
+            .limit(show)
+            .asPromise();
+
+        session.close();
+
+        return {
+            success: true,
+            data: comics
+        }
+    }
 }
 
 export const PageWorker = new Worker();

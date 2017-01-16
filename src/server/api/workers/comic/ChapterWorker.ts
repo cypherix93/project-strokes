@@ -84,6 +84,25 @@ class Worker implements IRestWorker<Chapter>
     {
         return undefined;
     }
+
+    public async getChaptersForArc(arcId: string, page = 1, show = 10): Promise<IPayload<Chapter[]>>
+    {
+        var session = SessionManager.createSession();
+
+        var chapters = await session.query(Chapter)
+            .findAll({arcId})
+            .sort("number", 1)
+            .skip(show * (page - 1))
+            .limit(show)
+            .asPromise();
+
+        session.close();
+
+        return {
+            success: true,
+            data: chapters
+        }
+    }
 }
 
 export const ChapterWorker = new Worker();

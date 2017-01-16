@@ -40,7 +40,9 @@ class Worker implements IRestWorker<Comic>
     public async read(id: string): Promise<IPayload<Comic>>
     {
         var session = SessionManager.createSession();
-        var comic = await session.query(Comic).findOne({_id: id}).asPromise();
+        var comic = await session.query(Comic)
+            .findOne({_id: id})
+            .asPromise();
 
         if (!comic)
         {
@@ -66,6 +68,25 @@ class Worker implements IRestWorker<Comic>
     public async remove(id: string): Promise<IPayload<Comic>>
     {
         return undefined;
+    }
+
+    public async getAllComics(page = 1, show = 10): Promise<IPayload<Comic[]>>
+    {
+        var session = SessionManager.createSession();
+
+        var comics = await session.query(Comic)
+            .findAll()
+            .sort("title", 1)
+            .skip(show * (page - 1))
+            .limit(show)
+            .asPromise();
+
+        session.close();
+
+        return {
+            success: true,
+            data: comics
+        }
     }
 }
 
