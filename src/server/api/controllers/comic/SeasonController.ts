@@ -8,27 +8,27 @@ import {SeasonWorker} from "../../workers/comic/SeasonWorker";
 @JsonController("/season")
 export class SeasonController implements IRestController
 {
-    @Get("/:id")
+    @Get("/read/:id")
     public async read(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
         return await SeasonWorker.read(id);
     }
 
-    @Put("/")
+    @Put("/create/")
     @UseBefore(authorize(Roles.Editor))
     public async create(@Req() req: Request, @Res() res: Response)
     {
         return await SeasonWorker.create(req.body);
     }
 
-    @Patch("/:id")
+    @Patch("/update/:id")
     @UseBefore(authorize(Roles.Editor))
     public async update(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
         return await SeasonWorker.update(id, req.body);
     }
 
-    @Delete("/:id")
+    @Delete("/delete/:id")
     @UseBefore(authorize(Roles.Editor))
     public async remove(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {

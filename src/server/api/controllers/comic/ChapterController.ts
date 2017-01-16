@@ -8,27 +8,27 @@ import {ChapterWorker} from "../../workers/comic/ChapterWorker";
 @JsonController("/chapter")
 export class ChapterController implements IRestController
 {
-    @Get("/:id")
+    @Get("/read/:id")
     public async read(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
         return await ChapterWorker.read(id);
     }
 
-    @Put("/")
+    @Put("/create/")
     @UseBefore(authorize(Roles.Editor))
     public async create(@Req() req: Request, @Res() res: Response)
     {
         return await ChapterWorker.create(req.body);
     }
 
-    @Patch("/:id")
+    @Patch("/update/:id")
     @UseBefore(authorize(Roles.Editor))
     public async update(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
         return await ChapterWorker.update(id, req.body);
     }
 
-    @Delete("/:id")
+    @Delete("/delete/:id")
     @UseBefore(authorize(Roles.Editor))
     public async remove(@Req() req: Request, @Res() res: Response, @Param("id") id: string)
     {
