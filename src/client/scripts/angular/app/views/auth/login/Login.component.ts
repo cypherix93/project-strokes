@@ -19,7 +19,7 @@ class LoginController implements angular.IController
     {
         if (!this.email || !this.password)
         {
-            this.hasLoginFailed = "A valid Email and a Password are required to be provided.";
+            this.hasLoginFailed = "A valid Email and a Password must be provided.";
             return;
         }
 

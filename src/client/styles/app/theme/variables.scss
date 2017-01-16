@@ -16,19 +16,19 @@ $brand-danger:          hsl(0, 85%, 36%);
 
 $state-success-text:    lighten($brand-success, 15%);
 $state-success-bg:      darken($brand-success, 15%);
-$state-success-border:  $state-success-text;
+$state-success-border:  lighten($state-success-bg, 8%);
 
 $state-info-text:       lighten($brand-info, 25%);
 $state-info-bg:         darken($brand-info, 25%);
-$state-info-border:     $state-info-text;
+$state-info-border:     lighten($state-info-bg, 8%);
 
 $state-warning-text:    lighten($brand-warning, 10%);
 $state-warning-bg:      darken($brand-warning, 35%);
-$state-warning-border:  $state-warning-text;
+$state-warning-border:  lighten($state-warning-bg, 8%);
 
-$state-danger-text:     lighten($brand-danger, 5%);
+$state-danger-text:     lighten($brand-danger, 10%);
 $state-danger-bg:       darken($brand-danger, 25%);
-$state-danger-border:   $state-danger-text;
+$state-danger-border:   lighten($state-danger-bg, 8%);
 
 
 /* Font Stuff */

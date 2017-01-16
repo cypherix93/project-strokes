@@ -82,7 +82,7 @@ export class AuthWorker
     {
         // Check for empty email and password
         if (!email || !password)
-            return {error: "Email and Password must be specified."};
+            return {error: "Email Address and Password must be provided."};
 
         var session = SessionManager.createSession();
 
