@@ -92,7 +92,7 @@ export class AuthWorker
         session.close();
 
         if (!dbUser)
-            return {error: "Email or Password is not valid."};
+            return {error: "Email and Password combination provided is not valid."};
 
         // Now check password if it matches the user's associated Passport
         var passport = dbUser.passports.find(x => x.protocol === "local");
@@ -103,7 +103,7 @@ export class AuthWorker
         var isPasswordValid = CryptoHelper.validatePassword(password, passport.password);
 
         if (!isPasswordValid)
-            return {error: "Email or Password is not valid."};
+            return {error: "Email and Password combination provided is not valid."};
 
         // All checks passed
         return {
