@@ -12,6 +12,8 @@ module.exports = function (gulp, plugins, paths, project)
             script: serverPath + "/Server.js",
             watch: [serverPath]
         });
+        
+        gulp.watch(`${paths.server}/**/*`, ["compile-server"]);
     });
     
     gulp.task("run-client", function ()

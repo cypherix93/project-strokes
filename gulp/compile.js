@@ -21,6 +21,7 @@ module.exports = function (gulp, plugins, paths, project)
             });
         
         var tsResult = tsProject.src()
+            .pipe(plugins.cached("ts-server"))
             .pipe(plugins.typescript(tsProject));
         
         var tsTask = tsResult.js
