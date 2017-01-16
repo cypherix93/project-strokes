@@ -8,31 +8,31 @@ $gray:                  lighten($gray-base, 50.0%);
 $gray-light:            lighten($gray-base, 75%);
 $gray-lighter:          lighten($gray-base, 90.0%);
 
-$brand-primary:         hsl(214, 38%, 45%);
-$brand-success:         hsl(124, 47%, 46%);
-$brand-info:            hsl(270, 66%, 61%);
-$brand-warning:         hsl(35, 84%, 62%);
-$brand-danger:          hsl(2, 64%, 58%);
+$brand-primary:         hsl(214, 42%, 45%);
+$brand-success:         hsl(150, 75%, 30%);
+$brand-info:            hsl(200, 82%, 40%);
+$brand-warning:         hsl(40, 65%, 48%);
+$brand-danger:          hsl(0, 85%, 36%);
 
-$state-success-text:    darken($brand-success, 20%);
-$state-success-bg:      lighten($brand-success, 50%);
+$state-success-text:    lighten($brand-success, 15%);
+$state-success-bg:      darken($brand-success, 15%);
 $state-success-border:  $state-success-text;
 
-$state-info-text:       darken($brand-info, 20%);
-$state-info-bg:         lighten($brand-info, 35%);
+$state-info-text:       lighten($brand-info, 25%);
+$state-info-bg:         darken($brand-info, 25%);
 $state-info-border:     $state-info-text;
 
-$state-warning-text:    darken($brand-warning, 20%);
-$state-warning-bg:      lighten($brand-warning, 30%);
+$state-warning-text:    lighten($brand-warning, 10%);
+$state-warning-bg:      darken($brand-warning, 35%);
 $state-warning-border:  $state-warning-text;
 
-$state-danger-text:     darken($brand-danger, 20%);
-$state-danger-bg:       lighten($brand-danger, 40%);
+$state-danger-text:     lighten($brand-danger, 5%);
+$state-danger-bg:       darken($brand-danger, 25%);
 $state-danger-border:   $state-danger-text;
 
 
 /* Font Stuff */
-$web-font-path: "https://fonts.googleapis.com/css?family=Athiti:400,400i,700,700i";
+$web-font-path: "https://fonts.googleapis.com/css?family=Athiti:500,500i,700,700i";
 
 $font-family-sans-serif: "Athiti", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
