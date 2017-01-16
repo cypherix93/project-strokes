@@ -2,13 +2,16 @@ import {AppModule} from "../../../../App.module";
 import {registerRoute} from "../../../../core/helpers/RoutingHelper";
 import {AuthService} from "../../../../core/services/auth/Auth.service";
 import {IStateService, IStateParamsService} from "@types/angular-ui-router";
+import IScope = angular.IScope;
 
 class LoginController implements angular.IController
 {
     public email: string;
     public password: string;
 
-    constructor(private $state: IStateService, private $stateParams, private AuthService: AuthService, private toastr)
+    public hasLoginFailed: string;
+
+    constructor(private $scope: IScope, private $state: IStateService, private $stateParams, private AuthService: AuthService, private toastr)
     {
     }
 
@@ -16,7 +19,7 @@ class LoginController implements angular.IController
     {
         if (!this.email || !this.password)
         {
-            this.toastr.error("Both email and password needs to be provided.");
+            this.hasLoginFailed = "A valid Email and a Password are required to be provided.";
             return;
         }
 
@@ -24,7 +27,8 @@ class LoginController implements angular.IController
 
         if (!response.success)
         {
-            this.toastr.error(response.message);
+            this.hasLoginFailed = response.message;
+            this.$scope.$apply();
             return;
         }
 
