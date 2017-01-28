@@ -1,5 +1,4 @@
 const path = require("path");
-const typescript = require("typescript");
 const webpack = require("webpack");
 
 const merge = require("merge-stream");
@@ -15,10 +14,7 @@ module.exports = function (gulp, plugins, paths, project)
         var serverDest = paths.build + "/server/";
         var tsConfigPath = paths.server + "/tsconfig.json";
         
-        var tsProject = plugins.typescript
-            .createProject(tsConfigPath, {
-                typescript: typescript
-            });
+        var tsProject = plugins.typescript.createProject(tsConfigPath);
         
         var tsResult = tsProject.src()
             .pipe(plugins.cached("ts-server"))
