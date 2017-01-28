@@ -134,11 +134,12 @@
     "webpack-node-externals": "^1.4.3"
   },
   "scripts": {
+    "gulp": "./node_modules/.bin/gulp",
     "build": "npm run gulp build",
+    "package": "npm run gulp package",
     "start": "(npm run start-server) && (npm run start-client)",
-    "start-server": "npm run gulp run-server",
-    "start-client": "npm run gulp run-client",
-    "gulp": "./node_modules/.bin/gulp"
+    "start-server": "npm run gulp start:server",
+    "start-client": "npm run gulp start:client"
   },
   "author": {
     "name": "cypherix93",

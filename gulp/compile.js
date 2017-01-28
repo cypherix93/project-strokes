@@ -3,13 +3,13 @@ const webpack = require("webpack");
 
 const merge = require("merge-stream");
 
-module.exports = function (gulp, plugins, paths, project)
+export default function (gulp, plugins, paths, project)
 {
     // Compile everything
-    gulp.task("compile", ["compile-server", "compile-client"]);
+    gulp.task("compile", ["compile:server", "compile:client"]);
     
     // Compile Server files
-    gulp.task("compile-server", function ()
+    gulp.task("compile:server", function ()
     {
         var serverDest = paths.build + "/server/";
         var tsConfigPath = paths.server + "/tsconfig.json";
@@ -36,7 +36,7 @@ module.exports = function (gulp, plugins, paths, project)
     });
     
     // Compile Client files
-    gulp.task("compile-client", function (callback)
+    gulp.task("compile:client", function (callback)
     {
         var webpackConfig = require(path.join(paths.root, "webpack.config"));
         
