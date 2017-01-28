@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const WebpackDevServer = require("webpack-dev-server");
 
-export default function (gulp, plugins, paths, project)
+module.exports = function (gulp, plugins, paths, project)
 {
     gulp.task("start:server", ["compile:server"], function (callback)
     {

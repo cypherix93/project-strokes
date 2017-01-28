@@ -2,7 +2,7 @@ const del = require("del");
 const merge = require("merge-stream");
 const runSequence = require("run-sequence");
 
-export default function(gulp, plugins, paths, project)
+module.exports = function(gulp, plugins, paths, project)
 {
     gulp.task("clean", function (callback)
     {

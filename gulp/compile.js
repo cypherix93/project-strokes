@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 const merge = require("merge-stream");
 
-export default function (gulp, plugins, paths, project)
+module.exports = function (gulp, plugins, paths, project)
 {
     // Compile everything
     gulp.task("compile", ["compile:server", "compile:client"]);
@@ -20,7 +20,7 @@ export default function (gulp, plugins, paths, project)
             .pipe(plugins.cached("ts-server"))
             .pipe(plugins.typescript(tsProject));
         
-        var tsTask = tsResult.js
+        var tsTask = tsResult
             .pipe(plugins.debug({title: "[server] compiled:"}))
             .pipe(gulp.dest(serverDest));
         
