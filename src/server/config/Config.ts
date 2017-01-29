@@ -1,45 +1,14 @@
 import path = require("path");
+import {IAppConfig} from "../interfaces/IAppConfig";
 
 const env = process.env.NODE_ENV || "development";
 const isDevEnv = (env === "development");
 
 const rootPath = path.join(__dirname, "..");
 
-interface IAppConfig
-{
-    rootPath: string;
-    port: number;
-    cors: {
-        origin: string | string[],
-        credentials: boolean
-    };
-    winston: {
-        level: string
-    };
-    jwt: {
-        secret: string,
-        expiryInMinutes: number,
-        cookie: {
-            name: string,
-            options: {
-                httpOnly: boolean,
-                secure: boolean,
-                expires: Date
-            }
-        }
-    };
-    arango: {
-        host: string,
-        port: number,
-        database: string,
-        username: string,
-        password: string
-    }
-}
-
 export const CONFIG: IAppConfig = {
     rootPath: rootPath,
-    port: isDevEnv ? 7350 : 80,
+    port: isDevEnv ? 7950 : 80,
     cors: {
         origin: process.env.CLIENT_URL || true,
         credentials: true
@@ -51,7 +20,7 @@ export const CONFIG: IAppConfig = {
         secret: process.env.JWT_SECRET || "asdfghjkl",
         expiryInMinutes: 30,
         cookie: {
-            name: process.env.JWT_COOKIE || "symphone.presence",
+            name: process.env.JWT_COOKIE || "project.elegantstrokes.presence",
             options: {
                 httpOnly: true,
                 secure: !isDevEnv,
@@ -59,11 +28,10 @@ export const CONFIG: IAppConfig = {
             }
         }
     },
-    arango: {
-        host: process.env.ARANGO_HOST || "localhost",
-        port: process.env.ARANGO_PORT || 8529,
-        database: process.env.ARANGO_DBNAME || "SymphonE",
-        username: process.env.ARANGO_USER || "admin",
-        password: process.env.ARANGO_PASS || "admin123"
+    db: {
+        connectionString: "mongodb://localhost:27017/project-elegant-strokes"
+    },
+    settings: {
+        fileStoragePath: process.env.SETTINGS_STORAGE_PATH || path.resolve("/data/project-strokes/")
     }
 };

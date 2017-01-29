@@ -1,4 +1,4 @@
-import {AngularApp} from "../../../AngularApp";
+import {AppModule} from "../../../App.module";
 import {ApiService} from "../data/Api.service";
 import {IPayload} from "../../models/IPayload";
 
@@ -7,8 +7,9 @@ export class AuthService
     public currentUser: any;
     public authToken: string;
 
-    constructor(private ApiService: ApiService)
+    constructor(private $window: angular.IWindowService, private ApiService: ApiService)
     {
+        this.bootstrapSessionUser();
     }
 
     public isAuthenticated(): boolean
@@ -57,8 +58,10 @@ export class AuthService
             this.currentUser = undefined;
         }
 
+        this.$window.location.reload();
+
         return payload;
     }
 }
 
-AngularApp.service("AuthService", AuthService);
+AppModule.service("AuthService", AuthService);

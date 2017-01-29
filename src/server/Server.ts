@@ -2,7 +2,7 @@ import * as express from "express";
 
 import {CONFIG} from "./config/Config";
 import {LOGGER} from "./helpers/Logger";
-import {Bootstrap} from "./config/Bootstrap";
+import {Bootstrap} from "./startup/Bootstrap";
 
 var app = express();
 

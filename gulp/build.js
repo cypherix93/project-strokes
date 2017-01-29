@@ -46,27 +46,4 @@ module.exports = function(gulp, plugins, paths, project)
         
         return merge(packageJson, metaJson);
     });
-    
-    // Deploy App
-    gulp.task("deploy", function ()
-    {
-        var serverPaths = [
-            paths.build + "/server/**/*",
-            paths.root + "/pacakge.json"
-        ];
-        
-        var clientPaths = [
-            paths.build + "/client/**"
-        ];
-        
-        var server = gulp.src(serverPaths, {base: paths.root})
-            .pipe(plugins.zip("server.zip", {compress: true}))
-            .pipe(gulp.dest(paths.deploy));
-        
-        var client = gulp.src(clientPaths)
-            .pipe(plugins.zip("client.zip", {compress: true}))
-            .pipe(gulp.dest(paths.deploy));
-        
-        return merge(server, client);
-    });
 };

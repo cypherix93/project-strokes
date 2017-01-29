@@ -1,10 +1,11 @@
-import {IStateProvider, IState} from "angular-ui-router";
+import {IState, IStateProvider} from "angular-ui-router";
+import {AppModule} from "../../App.module";
 
-import {AngularApp} from "../../AngularApp";
+var registeredRoutes = [];
 
 export function registerRoute(name: string, state: IState)
 {
-    AngularApp.config(function ($stateProvider: IStateProvider)
+    AppModule.config(function ($stateProvider: IStateProvider)
     {
         $stateProvider.state(name, state);
     });

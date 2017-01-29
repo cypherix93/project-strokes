@@ -5,12 +5,13 @@
 import jQuery = require("jquery");
 
 // Lodash
-import * as lodash from "lodash";
+import _ = require("lodash");
 
 // Set globals
 window["$"] = jQuery;
 window["jQuery"] = jQuery;
-window["_"] = lodash;
+window["_"] = _;
+
 
 // Bootstrap
 import "bootstrap-sass";
@@ -20,11 +21,17 @@ import "angular";
 import "angular-sanitize";
 import "angular-messages";
 import "angular-animate";
-// import "angular-ui-bootstrap";
+import "angular-ui-bootstrap";
 import "angular-ui-router";
 import "angular-toastr";
 
 // Extra libraries
+import "jquery-sticky";
+import "angular-scroll";
+import "../vendor/angular-parallax/angular-parallax.js";
+
+// Polyfills
+import "./Polyfills";
 
 // Test
 console.log("LOOK MA I WORK!!");

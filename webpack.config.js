@@ -12,9 +12,9 @@ paths.styles = path.join(paths.client, "styles");
 paths.output = path.join(__dirname, "./build/client/");
 
 var entries = {
-    vendor: path.join(paths.scripts, "Vendor.ts"),
-    angular: glob.sync(path.join(paths.scripts, "angular/**/*.ts")),
-    styles: path.join(paths.styles, "main.scss")
+    "vendor_bundle": path.join(paths.scripts, "Vendor.ts"),
+    "angular_bundle": path.join(paths.scripts, "Angular.ts"),
+    "styles_bundle": path.join(paths.styles, "main.scss")
 };
 
 module.exports = {
@@ -23,17 +23,17 @@ module.exports = {
     output: {
         path: paths.output,
         library: "[name]",
-        filename: "js/[name]-bundle.js"
+        filename: "js/[name].js"
     },
     module: {
         loaders: [
             {
                 test: /\.ts$/,
-                loaders: ["ts-loader"]
+                loaders: ["ts-loader", "import-glob-loader"]
             },
             {
                 test: /\.scss$/,
-                loaders: ["style-loader", "css-loader", "sass-loader", "import-glob-loader"]
+                loaders: ["style-loader", "css-loader", "sass-loader"]
             },
             {
                 test: /\.(html)$/,
@@ -46,6 +46,10 @@ module.exports = {
             {
                 test: /\.(eot|svg|ttf|woff|woff2)/,
                 loader: "file-loader?name=fonts/[name].[ext]"
+            },
+            {
+                test: /\.(jpg|jpeg|png|bmp|gif|tiff)/,
+                loader: "file-loader?name=images/[name].[ext]"
             }
         ]
     },
@@ -57,12 +61,20 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
+            name: "vendor_bundle",
             minChunks: Infinity
         }),
         
         new CopyPlugin([
-            {from: paths.client + "/index.html"}
+            {
+                context: paths.client,
+                from: "**/*",
+                ignore: [
+                    "scripts/**/*",
+                    "styles/**/*",
+                    "tsconfig.json"
+                ]
+            }
         ])
     ]
 };

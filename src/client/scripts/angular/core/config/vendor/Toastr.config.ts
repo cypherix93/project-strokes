@@ -1,7 +1,7 @@
-import {AngularApp} from "../../../AngularApp";
+import {AppModule} from "../../../App.module";
 
 // Toastr configuration
-AngularApp.config(function (toastrConfig)
+AppModule.config(function (toastrConfig)
 {
     toastrConfig.autoDismiss = true;
     toastrConfig.positionClass = "toast-bottom-center";

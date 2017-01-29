@@ -1,13 +1,14 @@
+import moment = require("moment");
 import * as jwt from "jsonwebtoken";
 
 import {CONFIG} from "../config/Config";
-import {IUser} from "../database/models/IUser";
-import moment = require("moment");
 import {SignOptions} from "jsonwebtoken";
+
+import {User} from "../database/models/auth/User";
 
 export interface IPassportUser
 {
-    _key: string,
+    id: string,
     email: string,
     roles: string[],
     iat?: number;
@@ -16,7 +17,7 @@ export interface IPassportUser
 export class AuthHelper
 {
     // Helper that logs in a user and sets them to the session
-    public static registerUserToSession(user: IUser, request, response, next)
+    public static registerUserToSession(user: User, request, response, next)
     {
         // Form the user to set to session (we dont wanna set all the user data to session)
         var passportUser = AuthHelper.getUserForSession(user);
@@ -40,10 +41,10 @@ export class AuthHelper
     }
 
     // Helper that sets a user to session
-    public static getUserForSession(user: IUser): IPassportUser
+    public static getUserForSession(user: User): IPassportUser
     {
         return {
-            _key: user._key,
+            id: user.id,
             email: user.email,
             roles: user.roles
         };

@@ -4,7 +4,7 @@ const WebpackDevServer = require("webpack-dev-server");
 
 module.exports = function (gulp, plugins, paths, project)
 {
-    gulp.task("run-server", ["compile-server"], function (callback)
+    gulp.task("start:server", ["compile:server"], function (callback)
     {
         var serverPath = paths.build + "/server";
         
@@ -12,9 +12,11 @@ module.exports = function (gulp, plugins, paths, project)
             script: serverPath + "/Server.js",
             watch: [serverPath]
         });
+        
+        gulp.watch(`${paths.server}/**/*`, ["compile:server"]);
     });
     
-    gulp.task("run-client", function ()
+    gulp.task("start:client", function ()
     {
         var webpackConfig = require(path.join(paths.root, "webpack.config"));
         

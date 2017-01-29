@@ -1,11 +1,11 @@
-import {AngularApp} from "../AngularApp";
+import {AppModule} from "../App.module";
 
-class AppController
+class AppController implements angular.IController
 {
 
 }
 
-AngularApp.component("appComponent", {
+AppModule.component("appComponent", {
     controller: AppController,
     template: require("./App.template.html")
 });

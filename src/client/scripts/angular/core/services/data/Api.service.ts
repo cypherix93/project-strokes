@@ -1,6 +1,6 @@
 import {IHttpService, IHttpPromiseCallbackArg, IRequestShortcutConfig} from "angular";
 
-import {AngularApp} from "../../../AngularApp";
+import {AppModule} from "../../../App.module";
 import {API_BASE_URL} from "../../config/Constants.config";
 import {IPayload} from "../../models/IPayload";
 
@@ -42,4 +42,4 @@ export class ApiService
     }
 }
 
-AngularApp.service("ApiService", ApiService);
+AppModule.service("ApiService", ApiService);
