@@ -16,7 +16,7 @@ module.exports = function(gulp, plugins, paths, project)
             paths.build + "/client/**"
         ];
         
-        var server = gulp.src(serverPaths, {base: paths.root})
+        var server = gulp.src(serverPaths)
             .pipe(plugins.zip("server.zip", {compress: true}))
             .pipe(gulp.dest(paths.deploy));
         

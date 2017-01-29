@@ -32,5 +32,6 @@ gulp.task("default", ["package"]);
 // Load the other tasks from files
 require("./compile")(gulp, plugins, paths, project);
 require("./build")(gulp, plugins, paths, project);
+require("./package")(gulp, plugins, paths, project);
 require("./run")(gulp, plugins, paths, project);
 
