@@ -1,9 +1,9 @@
 {
   "name": "project-strokes",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
-  "copyright": "Copyright © 2016",
+  "copyright": "Copyright © 2017",
   "authors": "cypherix93",
   "dependencies": {
     "@types/cors": "^2.8.0",
