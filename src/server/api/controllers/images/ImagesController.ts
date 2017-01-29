@@ -1,9 +1,9 @@
 import path = require("path");
-import uuid = require("node-uuid");
 import fs = require("fs");
 import {Request, Response} from "express-serve-static-core";
 import {Controller, Get, Res, Req, Param, ContentType, EmptyResultCode} from "routing-controllers";
 import {CONFIG} from "../../../config/Config";
+import {IMAGES_STORAGE_PATH} from "../../../config/Constants";
 
 @Controller("/images")
 export class ImagesController
@@ -14,7 +14,7 @@ export class ImagesController
     public async getImage(@Req() req: Request, @Res() res: Response, @Param("file") file: string)
     {
         var imageFile = `${file}`;
-        var imagePath = path.join(CONFIG.settings.images.uploadPath, imageFile);
+        var imagePath = path.join(IMAGES_STORAGE_PATH, imageFile);
 
         try
         {

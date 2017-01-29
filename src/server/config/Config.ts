@@ -32,8 +32,6 @@ export const CONFIG: IAppConfig = {
         connectionString: "mongodb://localhost:27017/project-elegant-strokes"
     },
     settings: {
-        images: {
-            uploadPath: process.env.SETTINGS_IMAGES_UPLOADPATH || path.resolve("/data/project-strokes/images/")
-        }
+        fileStoragePath: process.env.SETTINGS_STORAGE_PATH || path.resolve("/data/project-strokes/")
     }
 };
