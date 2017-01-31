@@ -9,7 +9,7 @@ module.exports = function(gulp, plugins, paths, project)
     {
         var serverPaths = [
             paths.build + "/server/**/*",
-            paths.root + "/pacakge.json"
+            paths.root + "/package.json"
         ];
         
         var clientPaths = [
